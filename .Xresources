@@ -1,0 +1,172 @@
+
+
+
+!!
+!┌─────────────────────────────────────────────────────────────┐#
+!│ ______        __      __  __                                │#
+!│/\__  _\      /\ \    /\ \/\ \  __            __             │#
+!│\/_/\ \/    __\ \ \/'\\ \ `\\ \/\_\    ___   /\_\     __     │#
+!│   \ \ \  /'__`\ \ , < \ \ , ` \/\ \ /' _ `\ \/\ \  /'__`\   │#
+!│    \ \ \/\  __/\ \ \\`\\ \ \`\ \ \ \/\ \/\ \ \ \ \/\ \L\.\_ │#
+!│     \ \_\ \____\\ \_\ \_\ \_\ \_\ \_\ \_\ \_\_\ \ \ \__/.\_\│#
+!│      \/_/\/____/ \/_/\/_/\/_/\/_/\/_/\/_/\/_/\ \_\ \/__/\/_/│#
+!│                                             \ \____/        │#
+!│                                              \/___/         │#
+!└─────────────────────────────────────────────────────────────┘#
+
+
+!  ██     ██                                                                        
+! ░░██   ██                                                                         
+!  ░░██ ██   ██████  █████   ██████  ██████  ██   ██ ██████  █████   █████   ██████ 
+!   ░░███   ░░██░░█ ██░░░██ ██░░░░  ██░░░░██░██  ░██░░██░░█ ██░░░██ ██░░░██ ██░░░░  
+!    ██░██   ░██ ░ ░███████░░█████ ░██   ░██░██  ░██ ░██ ░ ░██  ░░ ░███████░░█████  
+!   ██ ░░██  ░██   ░██░░░░  ░░░░░██░██   ░██░██  ░██ ░██   ░██   ██░██░░░░  ░░░░░██ 
+!  ██   ░░██░███   ░░██████ ██████ ░░██████ ░░██████░███   ░░█████ ░░██████ ██████  
+! ░░     ░░ ░░░     ░░░░░░ ░░░░░░   ░░░░░░   ░░░░░░ ░░░     ░░░░░   ░░░░░░ ░░░░░░   
+!
+!
+!
+!!Font Settings
+!-------------------------
+Xft.autohint:   true
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull 
+Xft.hinting:    true
+Xft.antialias:  true
+Xft.dpi:        96
+Xft.rgba:       rgb
+
+!general program settings
+
+Xcursor.theme: 		Breeze-Obsidian
+Xcursor.size: 		16
+XLogo*geometry: 	150x150
+Xclock*geometry: 	150x150-0-0
+Xclock*background: 	#121314
+
+!Start of URxvt Code-------------------------------
+!URxvt settings
+!-------------------
+URxvt.termName:    screen-256color
+URxvt.fading:      40
+URxvt.tint:        #990077
+URxvt.scrollBar:   False
+URxvt.transparent: True 
+URxvt.shading:     30
+URxvt.cursorBlink: true
+URxvt*saveLines:   4096
+URxvt*font: xft:UbuntuMonoDerivative Powerline Nerd Font:size=11,\ xft:mplusNF:size=16,\symbola:pixelsize=16,\  xft:Hack:bold:pixilsize=16, \ xft:terminus:hinting=true:pixelsize=16:antialias=false,9x15bold,\-misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\ -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1, \ [codeset=JISX0208]xft:Kochi Gothic:antialias=false, \xft:Code2000:antialias=false,\NERDfont,\xft:NERDfont,\xft:devicoms,\xft:octicons,/KnackNerdFontC-Regular
+URxvt.iso14755: true
+URxvt.iso14755_52: true
+
+!URxvt Colors------
+!------------------------
+URxvt*background: #AAAAAA
+URxvt*foreground: #66ff00
+URxvt*color0:     #000000
+URxvt*color1:     #CC0000
+URxvt*color2:     #4E9A06
+URxvt*color3:     #C4A000
+URxvt*color4:     #3465A4
+URxvt*color5:     #75507B
+URxvt*color6:     #06989A
+URxvt*color7:     #D3D7CF
+URxvt*color8:     #555753
+URxvt*color9: 	  #EF2929
+URxvt*color10:    #8AE234
+URxvt*color11:    #FCE94F
+URxvt*color12:    #729FCF
+URxvt*color13:    #AD7FA8
+URxvt*color14:    #34E2E2
+URxvt*color15:    #EEEEEC
+
+!Pearl Library Plugins
+!------------------------------------------------
+URxvt.perl-ext: clipboard,url-select,keyboard-select,tabbedex
+URxvt*perl-lib: /home/kevin/.urxvt/
+!URxvt*perl-ext-common : default,matcher,clipboard,url-select,url-picker
+
+!Enables copy/paste with Ctrl-Shift-C/V
+!-------------------------------------------------
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+! Fix for Home and End keys
+!
+
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
+
+!End of urxvt code--------------------
+!---------------------------------------------------
+!---------------------------------------------------
+
+!!Rofi settings  
+!--------------------------------------------------
+rofi.modi:           window,run,drun,rofi-locate
+rofi.font:           Terminus 12
+rofi.columns:        1
+rofi.combi-modi:     window,run,drun,rofi-locate
+rofi.hide-scrollbar: true
+rofi.width:          25
+rofi.location:       0
+rofi.lines:          15
+rofi.padding:        10 -
+rofi.fullscreen:     true
+rofi.bg:             black
+rofi.bc:             red
+rofi.fg:             green
+rofi.hlbg:           green
+rofi.hlfg:           black
+rofi.opacity:        85
+rofi.fake-transparancy: true
+
+
+
+!#####################
+!####### XTerm #######
+!#####################
+
+XTerm*background: 			blue   
+XTrem*forground: 			white
+XTerm*cursorColor:  		red
+XTerm*cursorBlink:      	true
+XTerm*cursorUnderline:   	true
+XTerm*faceName:             -*-termsyn-medium-*-normal-*-11-*-*-*-*-*-iso8859-1
+XTerm*faceSize:     		12
+Xterm*toolbar:  			true
+XTerm*metaSendsEscape: 		true
+XTerm.vt100.geometry:   	97x24
+Xterm*saveLines: 			4000
+XTerm*color0: 	#000000
+XTerm*color1: 	#CC0000
+XTerm*color2: 	#4E9A06
+Xterm*color3: 	#C4A000
+XTerm*color4: 	#3465A4
+XTerm*color5: 	#75507B
+XTerm*color6: 	#06989A
+XTerm*color7: 	#D3D7CF
+XTerm*color8: 	#555753
+XTerm*color9: 	#EF2929
+XTerm*color10: 	#8AE234
+XTerm*color11: 	#FCE94F
+XTerm*color12: 	#729FCF
+XTerm*color13: 	#AD7FA8
+XTerm*color14: 	#34E2E2
+XTerm*color15: 	#EEEEEC
+
+Aterm.font: 8x13
+Aterm.scrollBar: False
+Aterm.geometry: 250x250
+Aterm.trasparent: true
+Aterm.tinting:blue
+Aterm.shading: 50
+
+
+
+
+
+

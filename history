@@ -1,0 +1,50 @@
+rename [1971]Relics
+rename [1972]Obscured By Clouds
+rename [1973]The Dark Side of the Moon
+rename [1975]Wish You Were Here
+cd ..
+open_with q
+mkdir Phone
+shell sudo mkdir phone
+rename Makefi
+s
+rename reaverwps
+rename dc400b26-src.tbz2
+open_with 0
+search xw
+search doc
+shell 
+search stterm
+search lfm
+search jedrc
+search jed
+open_with surf
+search .i3
+cd .vim
+open_with 2
+open_with ansi
+open_with gp
+open_with cacaview
+cd .sys
+open_with sh ~/bin/ansilove
+search metallica
+rename ppe-metallica.ans.png
+rename ASCII_Pics
+open_with 0ad
+cd ~/.config/ranger
+cd  ~/.vim
+cd ~/.sys
+cd .themes
+find 
+
+q
+sudo rm
+shell sudo rm
+refresh
+cd  .sys
+search mame
+source ~/.config/ranger/rc.conf
+open_with dosemu
+search dos
+open_with 
+open_with 1

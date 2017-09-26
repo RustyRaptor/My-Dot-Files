@@ -1,0 +1,73 @@
+#################################################################
+#┌─────────────────────────────────────────────────────────────┐#
+#│ ______        __      __  __                                │#
+#│/\__  _\      /\ \    /\ \/\ \  __            __             │#
+#│\/_/\ \/    __\ \ \/'\\ \ `\\ \/\_\    ___   /\_\     __     │#
+#│   \ \ \  /'__`\ \ , < \ \ , ` \/\ \ /' _ `\ \/\ \  /'__`\   │#
+#│    \ \ \/\  __/\ \ \\`\\ \ \`\ \ \ \/\ \/\ \ \ \ \/\ \L\.\_ │#
+#│     \ \_\ \____\\ \_\ \_\ \_\ \_\ \_\ \_\ \_\_\ \ \ \__/.\_\│#
+#│      \/_/\/____/ \/_/\/_/\/_/\/_/\/_/\/_/\/_/\ \_\ \/__/\/_/│#
+#│                                             \ \____/        │#
+#│                                              \/___/         │#
+#└─────────────────────────────────────────────────────────────┘#
+#################################################################
+
+
+  ______ _______  ______ _     _ __   _
+ |  ____ |  |  | |_____/ |     | | \  |
+ |_____| |  |  | |    \_ |_____| |  \_|
+                                       
+
+
+
+
+
+# gmrun configuration file
+# gmrun is (C) Mihai Bazon, <mishoo@infoiasi.ro>
+# GPL v2.0 applies
+
+
+
+# Set terminal
+Terminal = urxvt
+TermExec = urxvt -e
+AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man ranger sftp calcurse
+
+# Set window geometry (except height)
+Width = 300
+
+# History size
+History = 10000
+
+# Shows last history line selected when invoked
+ShowLast = 1
+
+# Show files starting with '.'
+# Default is 0 (off), set it to 1 if you want "hidden" files to show up
+# in the completion window
+ShowDotFiles = 0
+
+# Timeout (in milliseconds) after which gmrun will simulate a TAB press
+# Set this to NULL if don't like this feature.
+TabTimeout = 0
+
+# URL handlers
+# If the entered text is "http://www.google.com" then:
+#   - %u gets replaced with the whole URL ("http://www.google.com")
+#   - %s gets replaced with "//www.google.com".  This is useful for URL-s
+#     like "man:printf" --> %s will get replaced with "printf"
+URL_http = x-www-browser '%u'
+URL_mailto = mozilla -remote "mailto(%s)"
+URL_man = ${TermExec} 'man %s'
+URL_info = ${TermExec} 'info %s'
+URL_pd = ${TermExec} 'perldoc %s'
+URL_file = ${TermExec}ranger%s
+URL_readme = ${TermExec} 'less /usr/doc/%s/README'
+URL_info = ${TermExec} 'info %s'
+URL_sh = sh -c '%s'
+
+# extension handlers
+EXT:doc,rtf = AbiWord %s
+EXT:txt,cc,cpp,h,java,html,htm,epl,tex,latex,js,css,xml,xsl,am = gbim %1
+EXT:ps = gv %s
+EXT:pdf = xpdf %s

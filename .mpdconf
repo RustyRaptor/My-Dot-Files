@@ -1,0 +1,64 @@
+#  ████     ████ ███████  ███████
+# ░██░██   ██░██░██░░░░██░██░░░░██
+# ░██░░██ ██ ░██░██   ░██░██    ░██
+# ░██ ░░███  ░██░███████ ░██    ░██
+# ░██  ░░█   ░██░██░░░░  ░██    ░██
+# ░██   ░    ░██░██      ░██    ██
+# ░██        ░██░██      ░███████
+# ░░         ░░ ░░       ░░░░░░░
+#
+music_directory		"/media/Music/Music_Archives/timp"
+playlist_directory		"/media/Music/mpd/playlists"
+db_file			"/media/Music/mpd/tag_cache"
+log_file			"/media/Music/mpd/mpd.log"
+pid_file			"/media/Music/mpd/pid"
+state_file			"/var/lib/mpd/state"
+sticker_file                   "/var/lib/mpd/sticker.sql"
+user				"kevin"
+bind_to_address		"localhost"
+port				"6603"
+gapless_mp3_playback			"yes"
+save_absolute_paths_in_playlists	"yes"
+auto_update    "yes"
+
+ follow_inside_symlinks      "yes"
+ follow_outside_symlinks "yes"
+
+
+
+#database {
+#       plugin "proxy"
+#       host "other.mpd.host"
+#       port "6600"
+#}
+
+# Input #######################################################################
+
+#input {
+#        plugin "curl"
+#       proxy "proxy.isp.com:8080"
+#       proxy_user "user"
+#       proxy_password "password"
+#}
+
+#audio_output {
+#	type		"alsa"
+#	name		"My ALSA Device"
+#}
+
+
+
+	audio_output {
+    	type                    "fifo"
+    	name                    "my_fifo"
+    	path                    "/tmp/mpd.fifo"
+    	format                  "44100:16:2"
+	}
+
+#	audio_output {
+ #       ... 
+  #      #this sets the buffer time to 50,000 microseconds
+   #     buffer_time     "50000"
+#	}
+
+

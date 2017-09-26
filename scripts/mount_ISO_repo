@@ -1,0 +1,81 @@
+#!/bin/bash
+# Debian offline repository mounting or
+unmounting script.
+# By:~ fixmynix.com
+# check for root access
+if [ $(id -u) -ne 0 ];then
+echo 'run this scripts as root user or use
+sudo'
+exit 1
+fi
+# create mount points
+mkdir -p /media/repo-1
+mkdir -p /media/repo-2
+mkdir -p /media/repo-3
+# mount or unmount
+case "$1" in
+mount)
+# mount Debian DVD ISO images
+# must change the path of ISO files
+according to yours
+if $(mountpoint -q /media/repo_1);then
+echo 'ISO file already mounted'
+else
+echo 'mounting ISO file 1'
+mount -o loop /media/Games/debian-8.6.0-amd64-DVD-1.iso /media/repo-1/
+fi
+if $(mountpoint -q /media/repo_2);then
+echo 'ISO file already mounted'
+else
+echo 'mounting ISO file 2'
+mount -o loop /media/Games/de-8.bian6.0-amd64-DVD-2.iso /media/repo-2/
+fi
+if $(mountpoint -q /media/repo-3);then
+echo 'ISO file already mounted'
+else
+echo 'mounting ISO file 3'
+mount -o loop /media/Games/debian-8.6.0-amd64-DVD-3.iso /media/repo-3/
+fi
+
+if $(mountpoint -q /media/repo-4);then
+echo 'ISO file already mounted'
+else
+echo 'mounting ISO file 4'
+mount -o loop /media/Games/debian-8.8.0-i386-DVD-1.iso /media/repo-4/
+fi
+
+if $(mountpoint -q /media/repo-5);then
+echo 'ISO file already mounted'
+else
+echo 'mounting ISO file 5'
+mount -o loop /media/Games/debian-8.8.0-i386-DVD-2.iso /media/repo-5/
+fi
+
+if $(mountpoint -q /media/repo-6);then
+echo 'ISO file already mounted'
+else
+echo 'mounting ISO file 6'
+mount -o loop /media/Games/debian-8.8.0-i386-DVD-3.iso /media/repo-6/
+fi
+;;
+umount)
+# unmount ISO images
+if ! $(mountpoint -q /media/repo-1/);then
+echo 'repo 1 not mounted'
+else umount /media/repo-1
+fi
+if ! $(mountpoint -q /media/repo_2/);then
+echo 'repo 2 not mounted'
+else umount /media/repo-2
+fi
+if ! $(mountpoint -q /media/repo-3/);then
+echo 'repo 3 not mounted'
+else umount /media/repo-3
+fi
+;;
+*)
+echo 'use sudo mount_CD_repo mount/umount to
+mount or unmount ISO files'
+;;
+esac
+ 

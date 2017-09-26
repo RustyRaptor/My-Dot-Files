@@ -54,13 +54,13 @@
 
  ## Screen Shots
 
- ![Main Desktop](screenshots/jillyfishrice1.png)  
- :
- ![musicplaying](srceenshots/jillyfishrice2.png)
+ ![Main Desktop](jillyfishrice1.png)  
+ 
+ ![musicplaying](jillyfishrice2.png)
 
- ![vim](screenshots/jillyfishrice3.png)
+ ![vim](jillyfishrice3.png)
 
-![ranger](screenshots/jellyfishrice.png)
+![ranger](jellyfishrice.png)
 
 ## What's Inside?
 

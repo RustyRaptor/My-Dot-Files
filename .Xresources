@@ -43,10 +43,24 @@ Xcursor.size: 		16
 XLogo*geometry: 	150x150
 Xclock*geometry: 	150x150-0-0
 Xclock*background: 	#121314
+XCalc.ti.Command.background: green         
+XCalc.ti.Command.foreground: Black
+XCalc*ti.backgroundPixmap:		blue
+XCalc*.bevel.background:		red
+XCalc*.bevel.displayList:		foreground black;lines -1,0,0,0,0,-1;lines 3,-4,-4,-4,-4,3
+XCalc*ti.Command.shapeStyle:		roundedSquare
+
+XCalc*.bevel.screen*background: black	
+XCalc*.bevel.screen.borderColor:	red
+XCalc*.bevel.screen*LCD.foreground:	white
+XCalc*.bevel.screen*INV.vertDistance:	2
+XCalc*.bevel.borderColor:		blue
+
 
 !Start of URxvt Code-------------------------------
 !URxvt settings
 !-------------------
+Urxvt.shell:       /bin/zsh
 URxvt.termName:    screen-256color
 URxvt.fading:      40
 URxvt.tint:        #990077
@@ -82,7 +96,7 @@ URxvt*color15:    #EEEEEC
 
 !Pearl Library Plugins
 !------------------------------------------------
-URxvt.perl-ext: clipboard,url-select,keyboard-select,tabbedex
+URxvt.perl-ext: clipboard,url-select,tabbedex
 URxvt*perl-lib: /home/kevin/.urxvt/
 !URxvt*perl-ext-common : default,matcher,clipboard,url-select,url-picker
 

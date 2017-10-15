@@ -1,0 +1,422 @@
+#################################################################
+#┌─────────────────────────────────────────────────────────────┐#
+#│ ______        __      __  __                                │#
+#│/\__  _\      /\ \    /\ \/\ \  __            __             │#
+#│\/_/\ \/    __\ \ \/'\\ \ `\\ \/\_\    ___   /\_\     __     │#
+#│   \ \ \  /'__`\ \ , < \ \ , ` \/\ \ /' _ `\ \/\ \  /'__`\   │#
+#│    \ \ \/\  __/\ \ \\`\\ \ \`\ \ \ \/\ \/\ \ \ \ \/\ \L\.\_ │#
+#│     \ \_\ \____\\ \_\ \_\ \_\ \_\ \_\ \_\ \_\_\ \ \ \__/.\_\│#
+#│      \/_/\/____/ \/_/\/_/\/_/\/_/\/_/\/_/\/_/\ \_\ \/__/\/_/│#
+#│                                             \ \____/        │#
+#│                                              \/___/         │#
+#└─────────────────────────────────────────────────────────────┘#
+##################### i3 config file (v4)########################
+
+##########################################
+#'####::'#######::'##:::::'##:'##::::'##:#
+#. ##::'##.... ##: ##:'##: ##: ###::'###:#
+#: ##::..::::: ##: ##: ##: ##: ####'####:#
+#: ##:::'#######:: ##: ##: ##: ## ### ##:#
+#: ##:::...... ##: ##: ##: ##: ##. #: ##:#
+#: ##::'##:::: ##: ##: ##: ##: ##:.:: ##:#
+#'####:. #######::. ###. ###:: ##:::: ##:#
+#....:::.......::::...::...:::..:::::..::#
+##########################################
+
+#-----General Settings{{{
+##########################################
+#------------General Settings------------#
+##########################################
+
+#--------------variables-----------------#
+#Colors
+#Dmenu Colors
+	set $fg #c5c8c6
+	set $bg #1d1f21
+	set $in #707880
+	set $fo #cc6666
+	set $un #373b41
+	set $ur #81a2be
+	set $fg #c5c8c6
+
+set $Black        		 #000000
+set $charcoal    		 #282828
+set $grey                #212121
+set $valencia            #e64a19
+set $magenta             #a673a6
+set $blue                #7182A8
+set $cyan                #6da3a1
+set $black               #000000
+set $white               #b7bbbd
+set $yellow              #27c282
+set $red                 #aa0e50
+set $green               #33ff00
+
+# theme colors
+set $bg-color 	         #eeeeee
+set $inactive-bg-color   #212121
+set $text-color          #ffffff
+set $inactive-text-color #212121
+set $urgent-bg-color     #e64a19
+
+#Work Spaces 
+set $tag1 "1:  Core"
+set $tag2 "2:  Code"
+set $tag3 "3:  Files"
+set $tag4 "4:  games"
+set $tag5 "5:  Projects"
+set $tag6 "6:  Music"
+set $tag7 "7:  reading"
+set $tag8 "8:  network"
+set $tag9 "9:  www" 
+set $tag10 "10: misc"
+
+#----------------------------------------#
+
+#----------------- Mod key---------------#
+set $mod Mod1
+#----------------------------------------#
+
+#------------------gaps------------------#
+#hide_edge_borders both
+#smart_borders on
+#gaps inner 10
+#gaps outer 15
+#new_float pixel 5
+#new_window pixel 5
+#----------------------------------------#
+
+#-------------- Window options_----------#
+focus_follows_mouse             false
+popup_during_fullscreen         smart
+#----------------------------------------#
+
+#----------- Workspace options-----------#
+workspace_layout                default# {{{# }}}
+workspace_auto_back_and_forth   yes
+#----------------------------------------#
+
+#----------------------------------------#
+
+#}}}
+#-----Apperance Settings{{{
+##########################################
+#----------Apperance Settings------------#
+##########################################
+
+#------------------Font------------------#
+font pango:terminus 8
+#----------------------------------------#
+
+#----------------Colors------------------#
+# set window colors
+# class                 border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $white               $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
+client.background       $bg-color
+#----------------------------------------#
+
+#-------Defualt Bourder Settings---------#
+for_window [class="^.*"] border pixel 3
+new_window pixel 3
+#----------------------------------------#
+
+#----------- App windows settings--------#
+for_window [class="XCalc"] floating enable
+for_window [class="XCalc"] border normal
+for_window [class="Pavucontrol"] floating enable
+for_window [window_role="pop-up$"] floating enable
+for_window [window_role="task_dialog$"] floating enable
+for_window [title="Preferences$"] floating enable
+for_window [class="Xsane"] floating enable
+for_window [class="Xchm"] floating enable
+for_window [class="Xmessage"] floating enable
+for_window [title="Nitrogen"] floating enable
+for_window [title="Gnome-Disks"] floating enable
+for_window [title="Synapse"] border none
+for_window [class="Synapse"] border none
+for_window [class="Xfce-Appfinder"] floating enable
+for_window [Title="Xfce-Appfinder"] floating enable
+for_window [class="pdmenu"] floating enable
+for_window [title="pdmenu"] floating enable
+#-----------------------------------------#
+#-----------------------------------------#
+#}}}
+#-----Special Operation Modes{{{ 
+#########################################
+#--------Special operation Modes--------#
+#########################################
+
+#---------------- Ignore mode-----------#
+#Press Mod + Shift + i to ignore most keypresses.
+mode "Ignore" {
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+#---------------------------------------#
+
+#--------------Resize Mode--------------#
+#(you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+
+}
+#---_-----------------------------------#
+#}}}
+#-----General Keybinding's{{{
+###########################################
+#---------General Keybindings-------------#
+###########################################
+
+#-----------Work Space movement-----------#
+#workspace Return to last
+bindsym $mod+Escape		workspace prev
+
+#Work Space Back N Forth
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+shift+z move container to workspace back_and_forth; workspace back_and_forth
+#-----------------------------------------#
+
+#-----------Fast Resize-------------------#
+#resize with out being in resize mode
+bindsym $mod+shift+ctrl+Right   resize shrink width 10px or 10ppt
+bindsym $mod+shift+ctrl+Up   resize shrink height 10px or 10ppt
+bindsym $mod+shift+ctrl+Left  resize grow width 10px or 10ppt
+bindsym $mod+shift+ctrl+Down   resize grow height 10px or 10ppt
+#-----------------------------------------#
+
+#-----------ignore Mode Binding-----------#
+bindsym $mod+Shift+i mode Ignore
+#-----------------------------------------#
+
+#-----------window Control----------------#
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+#Chang focuse
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+#change Border Thinkness
+bindsym $mod+i border normal
+bindsym $mod+o border 1pixel
+bindsym $mod+p border none
+
+#fast move to urgent window
+bindsym $mod+u [urgent=latest] focus
+
+# move Focused Window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation (i Reversed the Defualt this makes more sence to me
+bindsym $mod+h split V
+bindsym $mod+v split H
+
+# enter fullscreen mode for the focused container
+bindsym $mod+W fullscreen
+
+# Toggle between stacking/tabbed/splith/splitv:
+bindsym $mod+x layout toggle all
+
+# Toggle floating/tiling
+bindsym $mod+f floating toggle
+
+# change focus between tiling / floating windows
+
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# The middle button and a modifer over any part of the window kills the window
+#bindsym --whole-window $mod+button3 kill
+
+#----------Work Spaces------------------#
+# switch to workspace
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
+bindsym $mod+7 workspace $tag7
+bindsym $mod+8 workspace $tag8
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag10
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
+bindsym $mod+Shift+7 move container to workspace $tag7
+bindsym $mod+Shift+8 move container to workspace $tag8
+bindsym $mod+Shift+9 move container to workspace $tag9
+bindsym $mod+Shift+0 move container to workspace $tag10
+
+#-----------------------------------------#
+
+#--------for resize mode----------------#
+bindsym $mod+r mode "resize"
+#---------------------------------------#
+
+#-----------Scratch pad-----------------#
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+# Show the sup-mail scratchpad window, if any.
+bindsym $mod+Shift+s [title="^Sup ::"] scratchpad show
+#--------------------------------------#
+
+#------------13 Control----------------#
+
+# reload the configuration file
+bindsym $mod+ctrl+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Escape 	exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#--------------------------------------#
+
+#}}}
+#-----Program luanching Key Binding{{{
+
+#########################################
+#---------program key bindings----------# 
+#########################################
+
+# terminal
+bindsym $mod+Return exec 'urxvt' 
+
+#Program Luancers gmrun,demu,pdmenu
+bindsym $mod+d exec gmrun
+bindsym $mod+shift+d exec urxvt -e pdmenu                         
+bindsym $mod+ctrl+d exec dmenu_run -l 20 -p Run -fn "Ubuntu Mono-15" -nb "$bg" -nf "$in" -sf "$fg" -sb "$bg"
+
+#programs
+bindsym $mod+c exec xcalc
+bindsym $mod+shift+c "urxvt -e calcurse"
+bindsym $mod+shift+e exec urxvt -e mutt 
+bindsym $mod+b exec uzbl-tabbed 
+bindsym $mod+shift+h exec "urxvt -e htop"
+bindsym $mod+g exec Gimp 
+bindsym $mod+m exec "urxvt -e musikcube"
+bindsym $mod+ctrl+v "st -e vis" 
+bindsym $mod+e  exec "urxvt -e vim"
+
+#press print scrn for screen shot
+bindcode 107 exec xfce4-screenshooter
+
+# Volume
+bindsym $mod+k " exec amixer -D pulse sset Master '3%+'"
+bindsym $mod+j exec "amixer -D pulse sset Master '1%-'"
+bindsym $mod+l exec "pactl set-sink-mute  @DEFAULT_SINK@ toggle $update"
+bindsym $mod+ctrl+shift+v exec urxvt -e alsamixer
+bindsym $mod+shift+v exec "pavucontrol"
+bindsym $mod+ctrl+r exec "urxvt -e ranger"
+
+# Fuction key bindigs
+bindsym $mod+F2 exec gmrun
+bindsym $mod+F3 exec xfce4-appfinder
+bindsym $mod+F4 exec mate-search-tool
+bindsym $mod+F5 exec caja
+bindsym $mod+F6 exec urxvt -e jed
+bindsym $mod+F7 exec firefox
+bindsym $mod+F8 exec eject
+bindsym $mod+F9 exec " urxvt -e htop"
+bindsym $mod+F10 exec "urxvt -e ranger"
+bindsym $mod+F11 exec xscreensaver-command -activate
+#}}}
+#-----Panels{{{
+#################################
+#------------Panels-------------#
+#################################
+
+#top status panel
+#uses bumblee status 
+bar {	
+
+	position top
+	workspace_buttons no 
+	#tray_output HDMI-0
+	font pango:UbuntuMonoDerivative Powerline Nerd Font 10
+
+	
+	colors { 
+			background  $charcoal 
+	        statusline #000000
+			}
+
+	status_command /home/kevin/.i3/bar/bumblebee-status -m layout kernel nic cpu sensors memory date time pasink bluetooth -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t powerline
+}
+
+# Bottom Banep with workspace indacators
+
+bar {
+	position bottom
+	workspace_buttons yes
+	font pango:UbuntuMonoDerivative Powerline Nerd Font 12
+	}
+#}}}
+#-----AutoStart Aplications {{{
+#########################################
+#-------Autostart Aplications-----------#
+#########################################
+#Load urxvt settings
+exec xrdb load ~/.Xresources
+#Compton Compositor
+exec --no-startup-id compton
+#hides mouse curser when not using
+exec unclutter
+#Script to add 1600x900 and select it
+exec sh ~/scripts/setres
+#Network Connections manager
+exec --no-startup-id nm-applet
+#for my laser printer
+exec --no-startup-id hp-systray
+#I love Screen Savers
+exec --no-startup-id xscreensaver -no-splash
+#place wall ppaper after res change trust me  
+exec --no-startup-id nitrogen --restore
+#}}}
+
+
+
+
+

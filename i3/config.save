@@ -1,0 +1,343 @@
+######################
+#                    #
+# i3 config file (v4)#
+######################
+
+###Start Up Settings####
+set $mod Mod1
+
+new_Window pixel 0
+new_float normal
+
+#gaps
+#hide_edge_borders both
+#smart_borders on
+#gaps inner 10
+#gaps outer 15
+#new_float pixel 5
+#new_window pixel 5
+
+
+# i3 colors
+client.focused     #32cd32   #006400   #000000  
+Client.urgent      #32cd32   #006400   #ff0000  
+client.unfocused   #000000   #000000   #32cd32  
+
+# i3 Font
+font pango:FontAwesome 6
+
+#for Floting mode
+floating_minimum_size 75 x 50
+floating_maximum_size -1 x -1
+for_window [class="XCalc"] floating enable
+for_window [class="Seahorse"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
+
+
+#############key bindings############
+
+#window Control bindings#
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Show the sup-mail scratchpad window, if any.
+bindsym $mod+Shift+s [title="^Sup ::"] scratchpad show
+
+#Chang focise
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+i border normal
+bindsym $mod+o border 1pixel
+bindsym $mod+p border none
+
+bindsym $mod+u [urgent=latest] focus
+
+# move focused window
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split V
+
+# split in vertical orientation
+bindsym $mod+v split H
+
+# enter fullscreen mode for the focused container
+bindsym $mod+W fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+#bindsym $mod+e layout toggle split
+# Toggle between stacking/tabbed/split:
+
+
+# Toggle between stacking/tabbed/splith/splitv:
+bindsym $mod+x layout toggle all
+
+
+
+# Toggle floating/tiling
+bindsym $mod+f floating toggle
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+
+####program key bindings### 
+
+# start a terminal
+ bindsym $mod+Return exec urxvt 
+
+#gimp
+bindsym $mod+g exec morc_menu
+
+#press print scrn for screen shot
+bindcode 107 exec xfce4-screenshooter
+
+bindsym $mod+r mode "resize"
+# File manager
+bindsym $mod+n exec caja
+# Volume
+bindsym $mod+k " exec amixer -D pulse sset Master '3%+'"
+bindsym $mod+j exec "amixer -D pulse sset Master '1%-'"
+bindsym $mod+l exec "pactl set-sink-mute  @DEFAULT_SINK@ toggle $update"
+
+ #start Rofi (a program launcher)
+bindsym $mod+d exec rofi -show run  -fake-transparency  -opacity "75" -bg black -bc red -fg green -hlbg green -hlfg black rofi  -terminal urxvt
+bindsym $mod+control+shift+v exec urxvt -e alsamixer
+bindsym $mod+shift+v exec "pavucontrol"
+bindsym $mod+control+r exec "urxvt -e ranger"
+bindsym $mod+m exec "urxvt -e mocp"
+bindsym $mod+e  exec "geany"
+
+
+# Fuction key bindigs
+bindsym $mod+F2 exec rofi rofi -show run  -lines 4 -fake-transparency  -opacity "75" -bg black -bc red -fg green -hlbg green -hlfg black rofi -opacity "25" -terminal urxvt
+bindsym $mod+control+s exec i3_switch_workspace.sh 
+bindsym $mod+control+w exec rofi -show window -fake-transparency  -opacity "75" -bg black -bc Red -fg green -hlbg green -hlfg black rofi -opacity "25" -terminal urxvt
+bindsym $mod+F3 exec xfce4-appfinder
+bindsym $mod+F4 exec mate-search-tool
+bindsym $mod+F5 exec caja
+bindsym $mod+F6 exec urxvt -e jed
+bindsym $mod+F7 exec firefox
+bindsym $mod+F8 exec eject
+bindsym $mod+F9 exec " urxvt -e htop"
+bindsym $mod+F10 exec "urxvt -e ranger"
+bindsym $mod+F11 exec xscreensaver-command -activate
+bindsym $mod+F12 exec exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+
+
+#
+#exec dmenu_run -b -l 15 -p Enter_Comand: -nf green -sf black -sb green     
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+
+
+# focus the child container
+#bindsym $mod+d focus child
+
+#Wo#FF0000rkspace Names 
+set $tag1 "1: Main Area 💻"
+set $tag2 "2: System Monitoring 💉"
+set $tag3 "3: Code Wrinting 📝"
+set $tag4 "4: Playing Games 🎮"
+set $tag5 "5: Disk Operations 📀"
+set $tag6 "6: Music Operations 🎸🎶"
+set $tag7 "7: File Managment📂"
+set $tag8 "8: Graphics🔧"
+set $tag9 "9: Web Browsing 🌎"
+Set $tag10 "10: NetWoring Managment 📞"
+
+
+# switch to workspace
+bindsym $mod+1 workspace $tag1 
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
+bindsym $mod+7 workspace $tag7
+bindsym $mod+8 workspace $tag8
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
+bindsym $mod+Shift+7 move container to workspace $tag7
+bindsym $mod+Shift+8 move container to workspace $tag8
+bindsym $mod+Shift+9 move container to workspace $tag9
+bindsym $mod+Shift+0 move container to workspace $tag10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button3 kill
+
+# Take a screenshot upon pressing $mod+x (select an area)
+#bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {	
+      #  i3bar_command ~/.i3/lemonbar/i3_lemonbar.py
+	position top
+	workspace_buttons no
+	tray_output HDMI-0
+	font pango:FontAwesome 12
+	status_command i3status 
+	colors {
+		background #000000
+		Statusline #32cd32 
+		
+		focused_workspace   #32cd32   #32cd32   #000000
+		active_workspace    #32cd32   #32cd32   #000000
+		inactive_workspace  #32cd32   #000000   #32cd32
+	}
+	
+}
+
+bar {
+                i3bar_command ~/.i3/lemonbar/i3_lemonbar.py
+        }
+
+
+bar {
+        
+	position bottom
+	#separator_symbol ":|:" 
+	workspace_buttons yes
+	#tray_output HDMI-0
+	font pango:FontAwesome 10
+	#status_command i3status  
+	colors {
+		background #000000
+		Statusline #32cd32 
+		
+		focused_workspace   #32cd32   #32cd32   #000000
+		active_workspace    #32cd32   #32cd32   #000000
+		inactive_workspace  #32cd32   #000000   #32cd32
+	}
+	
+}
+
+
+
+# Startup programs
+exec --no-startup-id nm-applet
+#exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Alien/268765.jpg
+exec --no-startup-id compton
+#exec --no-startup-id xfce4-panel
+exec --no-startup-id  blueman-manager
+exec --no-startup-id hp-systray
+exec --no-startup-id pasystray
+exec --no-startup-id clipit
+exec --no-startup-id xfce4-volumed
+exec --no-startup-id xscreensaver -no-splash
+exec --no-startup-id nitrogen --restore
+#
+
+# workspace assignments
+# main
+
+assign [class="htop"]               2
+
+# Code Writings 3
+assign [class="geany"]              3
+
+
+assign [class="dosbox"]             4
+
+# misc
+assign [class="handbrake"]          5
+
+# music
+assign [class="cmus"]               6
+assign [class="banshee"]            6
+
+
+## Support NumPad with code-keys ##
+#     [+] [-] |      [86] [82]
+# [7] [8] [9] | [79] [80] [81]
+# [4] [5] [6] | [83] [84] [85]
+# [1] [2] [3] | [87] [88] [89]
+#     [0]     |      [90]
+
+## Terminal with administrator permisions #
+#
+#
+#
+exec xrandr --newmode "1600x900_49.90"  96.85  1600 1680 1848 2096  900 901 904 926  -HSync +Vsync
+
+exec xrandr --addmode HDMI-0 1600x900_49.90
+
+exec xrandr --output HDMI-0 --mode 1600x900_49.90  

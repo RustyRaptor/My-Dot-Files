@@ -1,0 +1,157 @@
+
+
+
+
+
+
+
+
+
+#  ████     ██   ██████  ████     ████ ███████    ██████  ███████  ███████ 
+# ░██░██   ░██  ██░░░░██░██░██   ██░██░██░░░░██  ██░░░░██░██░░░░██░██░░░░██
+# ░██░░██  ░██ ██    ░░ ░██░░██ ██ ░██░██   ░██ ██    ░░ ░██   ░██░██   ░██
+# ░██ ░░██ ░██░██       ░██ ░░███  ░██░███████ ░██       ░███████ ░███████ 
+# ░██  ░░██░██░██       ░██  ░░█   ░██░██░░░░  ░██       ░██░░░░  ░██░░░░  
+# ░██   ░░████░░██    ██░██   ░    ░██░██      ░░██    ██░██      ░██      
+# ░██    ░░███ ░░██████ ░██        ░██░██       ░░██████ ░██      ░██      
+# ░░      ░░░   ░░░░░░  ░░         ░░ ░░         ░░░░░░  ░░       ░░       
+#
+#----General Settings{{{
+ncmpcpp_directory = "~/.ncmpcpp"
+#lyrics_directory = "~/.lyrics"
+#**********
+use_console_editor = "yes"
+external_editor = "/usr/bin/vim"
+#**********
+titles_visibility = "yes"
+playlist_separate_albums = "yes"
+#**********
+follow_inside_symlinks      "yes"
+follow_outside_symlinks "yes"
+#**********
+mouse_support = "yes"
+header_visibility = "yes"
+statusbar_visibility = "yes"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+titles_visibility = "yes"
+discard_colors_if_item_is_selected = "yes"
+display_bitrate = "yes"
+display_remaining_time = "Yes"
+regular_expressions = "extended"
+display_volume_level    = "yes"
+user_interface = "alternative"
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+ask_before_clearing_playlists = "yes"
+#**********
+#}}}
+#-----MPD Settings{{{
+mpd_crossfade_time = "3"
+mpd_music_dir = "/media/Music/Music_Archives"
+mpd_host = "localhost"
+mpd_port = "6603"
+#}}}
+#-----Visualizer Settings{{{
+
+visualizer_in_stereo = "yes"
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_sync_interval = "10"
+visualizer_color = "blue"
+visualizer_look = "●▮"
+
+
+visualizer_type = "spectrum" 
+#}}}
+#-----Color settings{{{
+colors_enabled = "yes"
+color1 = "red"
+color2 = "purple"
+statusbar_color = "blue"
+main_window_color = "green"
+statusbar_time_color = "blue"
+player_state_color = "green
+main_window_highlight_color = "white"
+active_column_color = "White"
+active_window_border = "blue"
+progressbar_color = "red" 
+progressbar_elapsed_color = "blue"
+window_border_color = "green"
+alternative_ui_separator_color = "green"
+empty_tag_color = "black"
+state_line_color = "green"
+state_flags_color = "green
+header_window_color = "green"
+volume_color = "blue"
+#}}}
+#-----Format Syntax{{{
+song_list_format = "{$7%a $6> $5}{%t$6$R$b} [{%l}]"
+song_status_format = "$8%a$9 ✖ $2%t$9"
+song_library_format = "{%n - }{%t}|{%f}"
+song_status_format = "$7%a $6$b> $5%t $6$b> $2%b$6"
+song_columns_list_format    = "(20)[green]{a} (30)[cyan]{b} (50)[blue]{t|f}"
+song_status_format          = "{{$8%a$9{ $b-$/b $6%b$9 {(%y)}} ✖ } '{%t}}|{%f}'"
+song_window_title_format = "MPD: {%a > }{%t}{ [%b{ Disc %d}]}|{%f}"
+alternative_header_first_line_format = "$8$aqqu$/a$b {%t}|{%f} $/b$8$atqq$/a$9"
+alternative_header_second_line_format = "{{$8%a}{$8 - %b$9}{$8 (%y)$8}}|{%D$9}"
+
+#}}}
+#-----Prefix Suffix{{{
+now_playing_prefix  = "$b$1$8♫$1 "
+now_playing_suffix = " $8♫$9 "
+selected_item_prefix = " √ "
+browser_playlist_prefix = "$2plist »$9 "
+#progressbar_look = "=>"
+#progressbar_look = "─- "
+#progressbar_look = "▒▒░"
+#progressbar_look = "┅┅┄"
+progressbar_look = "─⊙┄"
+#progressbar_look = "─➞─"
+#progressbar_look = "─┅─"
+#progressbar_look = "▪▪▪"
+#progressbar_look = "▪▪▫"
+#progressbar_look = "───"
+#progressbar_look = "▁▁▁"
+#progressbar_look = "‒‒‒"
+#progressbar_look = "■◣ "
+#progressbar_look = "◈◆◇"
+#
+progressbar_boldness = "yes" 
+
+
+#}}}
+
+
+
+#------Settings cheat sheet
+# %l - length
+# %f - filename
+# %D - directory
+# %a - artist
+# %t - title
+# %b - album
+# %y - year
+# %n - track number (01/12 -> 01)
+# %N - full track info (01/12 -> 01/12)
+# %g - genre
+# %c - composer
+# %p - performer
+# %d - disc
+# %C - comment
+# $R - begin right alignment
+# █▓▒░ colors
+# $0 - default window color
+# $1 - black
+# $2 - red
+# $3 - green
+# $4 - yellow
+# $5 - blue
+# $6 - magenta
+# $7 - cyan
+# $8 - white
+#
+#
+# $9 - end of current color
+#
+#/* vim: set Filetype=conf : */

@@ -51,10 +51,16 @@
 
 * Compton
   * Custom Shadows and transparency settings
+
+* Dosbox
+ * Set res to 1200x900 perfect size for dos games
+ * added music,documents,picture path's
+ * 
   
 * dunst
-  * lightweight notification daemon - https://dunst-project.org/
   * Configured to placed in left hand corner
+
+* gmrun
 
 * i3-WM
   * i3 version 4.13
@@ -107,16 +113,18 @@
   * use with pick to select files with ls
   * use with oh-my-zsh and power line zsh
    
-## Suggest programs Links
- * Cli File Manager: https://github.com/ranger/ranger 
- * [Nerd Tree Plug in for vim](https://github.com/scrooloose/nerdtree.git) Adds A Sidebar file manager etc. to Vim.
- * [powerline Fonts](https://github.com/Lokaltog/powerline-fonts) Fonts collection used with powerline
- * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) great for beginning Zsh users.
- * [syntastic](https://github.com/vim-syntastic/syntastic.git) Advanced Syntax Correcting for Vim
- * Cli File Manager: https://github.com/ranger/ranger 
- * Debian - https://www.debian.org/
+## Suggested programs Links
+ * https://github.com/ranger/ranger 
+ * [Nerd Tree Plug in for vim](https://github.com/scrooloose/nerdtree.git) 
+ * [powerline Fonts](https://github.com/Lokaltog/powerline-fonts) 
+ * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 
+ * [syntastic](https://github.com/vim-syntastic/syntastic.git) 
+ * https://github.com/ranger/ranger 
+ * https://www.debian.org/
  * https://wiki.archlinux.org/index.php/Compton
-## Contact & Suggestions
+ * https://dunst-project.org/
+
+[##](##) Contact & Suggestions
 
  If you have something to say about my dotfiles (good or bad), please do so by
  email. Recommendations are very welcome, too.
@@ -129,7 +137,8 @@
  [Alex Booker](https://github.com/bookercodes) for his wonderful tutorials on
  [i3wm](https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf)
  and the [unixporn subreddit](https://www.reddit.com/r/unixporn/)[](.)
-[##More](##More) About Me
+ 
+[## More](##More) About Me
  
 	## My Current Setup
 		- Os: `Debian Jessie`
@@ -148,7 +157,7 @@
 		- Video Player: `mpv`
 		- Web Browser: `Firefox/w3b `
 		- Text Editor/IDE: `vim`
-		- Graphics: `gimp & imagtricks`
+		- Graphics editing: `gimp & imagtricks`
 		-  
 ## More about Ricing
 
@@ -175,5 +184,4 @@
  -- From [/r/unixporn](https://www.reddit.com/r/unixporn/wiki/themeing/dictionary).
 =============================================================================== 
 
-		
-		
+				

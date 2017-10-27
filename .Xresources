@@ -1,18 +1,8 @@
 
+! Author - TekNinja-Kevin Tangereen Spidermankevin78@gmail.com 
+! Last Update October 23th 2017
+! License - © 2017 WTFPL - http://www.wtfpl.net/ 
 
-
-!!
-!┌─────────────────────────────────────────────────────────────┐#
-!│ ______        __      __  __                                │#
-!│/\__  _\      /\ \    /\ \/\ \  __            __             │#
-!│\/_/\ \/    __\ \ \/'\\ \ `\\ \/\_\    ___   /\_\     __     │#
-!│   \ \ \  /'__`\ \ , < \ \ , ` \/\ \ /' _ `\ \/\ \  /'__`\   │#
-!│    \ \ \/\  __/\ \ \\`\\ \ \`\ \ \ \/\ \/\ \ \ \ \/\ \L\.\_ │#
-!│     \ \_\ \____\\ \_\ \_\ \_\ \_\ \_\ \_\ \_\_\ \ \ \__/.\_\│#
-!│      \/_/\/____/ \/_/\/_/\/_/\/_/\/_/\/_/\/_/\ \_\ \/__/\/_/│#
-!│                                             \ \____/        │#
-!│                                              \/___/         │#
-!└─────────────────────────────────────────────────────────────┘#
 
 
 !  ██     ██                                                                        
@@ -35,46 +25,57 @@ Xft.hinting:    true
 Xft.antialias:  true
 Xft.dpi:        96
 Xft.rgba:       rgb
-
-!general program settings
-
+!Xcursor Settings AKA Mouse Theme
 Xcursor.theme: 		Breeze-Obsidian
 Xcursor.size: 		16
+!Xlogo Theme
 XLogo*geometry: 	150x150
+XLogo*background: red 
+XLogo*foreground: black
+!Xclock Settings
 Xclock*geometry: 	150x150-0-0
 Xclock*background: 	#121314
+XClock*width:                      540
+XClock*height:                     540
+XClock*update:                     1
+XClock*hourColor:                  cyan
+XClock*minuteColor:                cyan
+XClock*secondColor:                red
+XClock*majorColor:                 red
+XClock*minorColor:                 cyan
+!XCalc Settings
 XCalc.ti.Command.background: green         
 XCalc.ti.Command.foreground: Black
 XCalc*ti.backgroundPixmap:		blue
 XCalc*.bevel.background:		red
 XCalc*.bevel.displayList:		foreground black;lines -1,0,0,0,0,-1;lines 3,-4,-4,-4,-4,3
-XCalc*ti.Command.shapeStyle:		roundedSquare
-
+XCalc*ti.Command.shapeStyle:		roundedRectangle
 XCalc*.bevel.screen*background: black	
 XCalc*.bevel.screen.borderColor:	red
 XCalc*.bevel.screen*LCD.foreground:	white
 XCalc*.bevel.screen*INV.vertDistance:	2
 XCalc*.bevel.borderColor:		blue
-
-
-!Start of URxvt Code-------------------------------
+xcalc*ti.button1.vertDistance: 4
+xcalc*ti.button2.vertDistance: 4
+xcalc*ti.button3.vertDistance: 4
+xcalc*ti.button4.vertDistance: 4
+xcalc*ti.button5.vertDistance: 4
+xcalc*ti.background: blue 
+XCalc*ShapeStyle:             rectangle
 !URxvt settings
-!-------------------
 Urxvt.shell:       /bin/zsh
 URxvt.termName:    screen-256color
-URxvt.fading:      40
+URxvt.fading:      10
 URxvt.tint:        #990077
 URxvt.scrollBar:   False
 URxvt.transparent: True 
 URxvt.shading:     30
 URxvt.cursorBlink: true
 URxvt*saveLines:   4096
-URxvt*font: xft:UbuntuMonoDerivative Powerline Nerd Font:size=11,\ xft:mplusNF:size=16,\symbola:pixelsize=16,\  xft:Hack:bold:pixilsize=16, \ xft:terminus:hinting=true:pixelsize=16:antialias=false,9x15bold,\-misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\ -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1, \ [codeset=JISX0208]xft:Kochi Gothic:antialias=false, \xft:Code2000:antialias=false,\NERDfont,\xft:NERDfont,\xft:devicoms,\xft:octicons,/KnackNerdFontC-Regular
+URxvt*font: xft:UbuntuMonoDerivative Powerline Nerd Font:size=11,\ xft:mplusNF:size=16,\symbola:pixelsize=16,\  xft:Hack:bold:pixilsize=16, \ xft:terminus:hinting=true:pixelsize=16:antialias=false,9x15bold,\-misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\ -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1, \ [codeset=JISX0208]xft:Kochi Gothic:antialias=false, \xft:Code2000:antialias=false,\NERDfont,\xft:NERDfont,\xft:devicons,\xft:octicons,/KnackNerdFontC-Regular, \file-icons,\xft:file-icons, \font-linux, \pomicons, \FontAwsone 
 URxvt.iso14755: true
 URxvt.iso14755_52: true
-
-!URxvt Colors------
-!------------------------
+!URxvt Colors
 URxvt*background: #AAAAAA
 URxvt*foreground: #66ff00
 URxvt*color0:     #000000
@@ -93,31 +94,38 @@ URxvt*color12:    #729FCF
 URxvt*color13:    #AD7FA8
 URxvt*color14:    #34E2E2
 URxvt*color15:    #EEEEEC
-
-!Pearl Library Plugins
+!Urxvt Pearl Library Plugins
 !------------------------------------------------
-URxvt.perl-ext: clipboard,url-select,tabbedex
+URxvt.perl-ext-common: default,matcher,vtwheel,clipboard,url-select,bell-command,keyboard-select,tabbedex
 URxvt*perl-lib: /home/kevin/.urxvt/
-!URxvt*perl-ext-common : default,matcher,clipboard,url-select,url-picker
-
 !Enables copy/paste with Ctrl-Shift-C/V
 !-------------------------------------------------
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
 ! Fix for Home and End keys
-!
-
 URxvt.keysym.Home: \033[1~
 URxvt.keysym.End: \033[4~
 URxvt.keysym.KP_Home: \033[1~
 URxvt.keysym.KP_End:  \033[4~
-
-
-!End of urxvt code--------------------
-!---------------------------------------------------
-!---------------------------------------------------
-
+!Urxvt Tab System
+URxvt.tabbed.autohide: no
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    7
+URxvt.tabbed.tab-bg:    0
+URxvt.tabbed.title: yes
+URxvt.tabbed.new-button:  no
+!URxvt url handler
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.autocopy:  true
+URxvt.url-select.launcher:   /usr/bin/links -g
+URxvt.url-select.underline: true
+URxvt.matcher.button:   1
+URxvt.keysym.M-a: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+!End of urxvt code
 !!Rofi settings  
 !--------------------------------------------------
 rofi.modi:           window,run,drun,rofi-locate
@@ -137,24 +145,35 @@ rofi.hlbg:           green
 rofi.hlfg:           black
 rofi.opacity:        85
 rofi.fake-transparancy: true
-
-
-
 !#####################
 !####### XTerm #######
 !#####################
-
-XTerm*background: 			blue   
-XTrem*forground: 			white
-XTerm*cursorColor:  		red
-XTerm*cursorBlink:      	true
-XTerm*cursorUnderline:   	true
-XTerm*faceName:             -*-termsyn-medium-*-normal-*-11-*-*-*-*-*-iso8859-1
-XTerm*faceSize:     		12
-Xterm*toolbar:  			true
-XTerm*metaSendsEscape: 		true
-XTerm.vt100.geometry:   	97x24
-Xterm*saveLines: 			4000
+!XTerm config
+Xterm*termName: xterm-256color
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+XTerm*utf8Title: true
+XTerm*renderFont: true
+XTerm*faceName: Terminus Re33
+XTerm*faceSize: 12
+XTerm*foreground: #bbbbbb
+XTerm*background: #151515
+XTerm*saveLines: 1000
+XTerm*loginShell: true
+Xterm*bellIsUrgent: true
+XTerm*scaleHeight: 1.01
+Xterm*borderWidth: 0
+XTerm*cursorBlink: true
+XTerm*cursorColor: red
+XTerm*selectToClipboard: true
+XTerm*allowSendEvents: false
+XTerm*sessionMgt: false
+XTerm*eightBitInput:  false
+XTerm*VT100*colorULMode:  off
+XTerm*VT100*colorBDMode:  off
+XTerm.VT100.titeInhibit:  off
+XTerm*colorUL: yellow
+XTerm*colorBD: white
 XTerm*color0: 	#000000
 XTerm*color1: 	#CC0000
 XTerm*color2: 	#4E9A06
@@ -171,7 +190,7 @@ XTerm*color12: 	#729FCF
 XTerm*color13: 	#AD7FA8
 XTerm*color14: 	#34E2E2
 XTerm*color15: 	#EEEEEC
-
+#Aterm
 Aterm.font: 8x13
 Aterm.scrollBar: False
 Aterm.geometry: 250x250

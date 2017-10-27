@@ -11,36 +11,64 @@
 "#│                                              \/___/         │#
 "#└─────────────────────────────────────────────────────────────┘#
 "#################################################################
+"===========M""MMMMM""M oo                              =========#
+"===========M  MMMMM  M                                 =========#
+"===========M  MMMMP  M dP 88d8b.d8b. 88d888b. .d8888b. =========#
+"===========M  MMMM' .M 88 88'`88'`88 88'  `88 88'  `"" =========#
+"===========M  MMP' .MM 88 88  88  88 88       88.  ... =========#
+"===========M     .dMMM dP dP  dP  dP dP       `88888P' =========#
+"===========MMMMMMMMMMM                                 =========#
+"================================================================#
 
+" Author - TekNinja-Kevin Tangereen Spidermankevin78@gmail.com 
+" Last Update October 23th 2017
+" License - © 2017 WTFPL - http://www.wtfpl.net/ 
 
-"M""MMMMM""M oo                              
-"M  MMMMM  M                                 
-"M  MMMMP  M dP 88d8b.d8b. 88d888b. .d8888b. 
-"M  MMMM' .M 88 88'`88'`88 88'  `88 88'  `"" 
-"M  MMP' .MM 88 88  88  88 88       88.  ... 
-"M     .dMMM dP dP  dP  dP dP       `88888P' 
-"MMMMMMMMMMM                                 
-
-""""""""""Required Plugins
-"Syntastic
-"NerdTree
-"NerdCommitor
-"lightline
-"justify
-"grammarous
-"supertab
-"dwm
-"syntastic
-"#-----General Settings{{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************
+"#***General Settings***{{{
+"================================================================="
+"=###################General Settings############################="
+"================================================================="
 runtime! debian.vim             " Set Vim to work with Debian 
-colorscheme satori       		" My favorite Color Scheme.
+"=======color=Schemes{{{
+"colorscheme luna      		" My favorite Color Scheme.
+"colorscheme xoria256
+"colorscheme fruity
+"colorscheme molokai
+"colorscheme blue
+"colorscheme solarized
+"colorscheme eclipse
+"colorscheme wal
+"colorscheme zenburn
+"colorscheme leo
+"colorscheme darkZ
+"colorscheme adaryn
+"colorscheme adrian
+"colorscheme kolor
+ "colorscheme  skittles_berry
+ "colorscheme Tomorrow-Night-Eighties
+ "colorscheme zmrok
+ "colorscheme vc
+" colorscheme neonbrainfuck
+" colorscheme anotherdark
+colorscheme ironman
+"colorscheme base16-default
+"colorscheme hybrid
+"colorscheme guardian
+"colorscheme matrix
+"colorscheme jammy
+"colorscheme inkpot
+"colorscheme mustang
+colorsheme robinghood
+
+#}}}
 hi Normal ctermbg=none          " Trasparent Back Ground
 hi NotText ctermbg=none         " Trasparent Back Ground
 hi LineNr ctermbg=none          " Transparent Back Ground
+"=============================
 syntax on                       " Redundent but works.
 filetype plugin indent on       " File type plug ins and autoendent
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================================="
 set encoding=utf-8 				" Is there any other encoding really?
 set history=1000                " Remeamber 
 set nocompatible        		" Make Vim more useful
@@ -50,6 +78,8 @@ set wildmenu            		" Enhance command-line completion.
 set t_Co=256            		" 256 color terminal.
 set showcmd						" Show (partial) command in status line.
 set showmatch		        	" Show matching brackets.
+set showmode 					" Show the current mode
+set showtabline=2               " Show tab line all the time.
 set ignorecase		        	" Do case insensitive matching.
 set smartcase		        	" Do smart case matching.
 set incsearch		        	" Incremental search.
@@ -70,7 +100,6 @@ set tabstop=4 					" Make tabs as wide as two spaces
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_ "Markers
 set list 						" Show “invisible” characters
 set nostartofline 				" Dont go to start of line when moving around
-set showmode 					" Show the current mode
 set title 						" Show the ilename in the window titlebar
 set scrolloff=3 				" Start scrolling three lines before the horizontal window border
 set laststatus=2                " Status line on
@@ -90,23 +119,32 @@ set backupdir=$HOME/.vim/backup " but not when they clog .
 set directory=$HOME/.vim/swap   "  Same for swap files
 set timeoutlen=1000             " time waiting for next char in command"
 set grepprg=grep\ -nH\ $*      
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Undo File 
-try
-    set undodir=~/.vim_runtime/temp_dirs/undodir
-    set undofile
-catch
-endtry
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set undodir=~/.vim_runtime/temp_dirs/undodir
+set undofile
+set switchbuf=useopen,usetab,newtab
+set stal=2
+"================================================================="
+" watch for changes then auto source vimrc
+" http://stackoverflow.com/a/2403926
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+"================================================================="
 "#}}} 
-"#-----Plug Ins***{{{
-""""""""""""""""""""""""''''''''''''''''''''''''''''''''''''''''''''''''"
-"Nerd Tree
-let g:NERDTreeWinPos = "left"
+"#***Plug Ins***{{{
+"================================================================="
+"##########################Plug-Ins###############################"
+"================================================================="
+"
+"================================================================="
+"==========================Nerd Tree=============================="
+let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
-""""""""""""""""""""""synastics""""""""""""""""""""""""""""""
+"================================================================"
+"==========================synastics============================="
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -130,20 +168,58 @@ let g:syntastic_python_checkers = ["flake8", "python"]
 let g:syntastic_html_checkers = ['validator']
 let g:livepreview_previewer = 'evince'
 let g:html_indent_inctags = "html,body,head,tbody"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""window Manager""""""""""""""""""""""""""
+autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+
+
+autocmd Syntax javascript set syntax=jquery   " JQuery syntax support
+" js
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+"================================================================"
+"======================Window Manager============================"
 let g:winManagerWindowLayout = 'FileExplorer,BufExplorer'
 "let g:tex_flavor='latex'
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================================"
+"=====================Make calcurse notes========================"
+"================================================================"
+autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
+
+"++++++++++++++++++scrooloose/syntastic settings+++++++++++++++++"
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+" powerline
+let g:Powerline_symbols = 'fancy'
+" vimwiki with markdown support
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 "#}}} 
 "#***keymap***{{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================================"
+"############################Key Map#############################"
+"================================================================"
 noremap H ^                         " Shift H goto Start of  line
 noremap L $                         " Shift L goto End of line" 
+nmap H ^
+nmap L $
+nmap <leader>e :Explore
+nmap <leader>q :quit
 nnoremap j gj                       " Use actial line insted of logical line
 nnoremap k gk                       "                ===
 nnoremap <C-j> <C-w>j  				" Move to window above 
@@ -151,17 +227,20 @@ nnoremap <C-k> <C-w>k   			" Move to window Below
 nnoremap <C-h> <C-w>h   			" Move to window on left
 nnoremap <C-l> <C-w>l               " Move to window on right
 map cm :call clearmatches()         " Clear Search Matches
-nmap ; :      
-map <leader>l :bnext<cr>            " Goto Next Buffer 
-map <leader>h :bprevious<cr>        " Goto Previous Buffer
+nmap ; :
+map <leader>l :tabn<cr>             " Goto Next tab 
+map <leader>h :tabp<cr>             " Goto Previous 
 map <C-t> :tabnew<CR>               " Goto New Tab
-map <leader>nn :NERDTreeToggle<cr>  "Nerdtree file Tree
-imap <C-c> <esc>                    "use Brake as an exit to insertmode
-"last Tab Magic Trick
-let g:lasttab = 1  			" 
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
+map <leader>nn :NERDTree
+map <leader>b :bufexplore
+map <leader>s :setlocal spell! spelllang=en_us
+imap <C-c> <esc>                   
 
+" move between matching opening and ending code; example { code }
+map <tab> %
+
+" Change case
+inoremap <C-u> <esc>mzgUiw`za
 "Fuction Keys Mapping  
    "F1: help Key
  	map <F1> :help 
@@ -176,169 +255,32 @@ au TabLeave * let g:lasttab = tabpagenr()
     "F6: Format paragraph
     map <silent> <F6> gwap
 	"F7: Spell Check on and off 
-	nn<F7>:setlocal spell! spelllang=en_us<CR>
-	map <F7><C-o>setlocal spell! spellang=en_us<CR>
+	nmap<F7>:setlocal spell! spelllang=en_us<CR>
+	map <F7><C-o>:setlocal spell! spellang=en_us<CR>
 	map <silent> <F8> g<C-G>
     "F9: Mapping for creating HTML of current buffer
     map <silent> <F9> :runtime! syntax/2html.vim<CR>
 
 	"F11 Use to toggle between 'paste' and 'nopaste'
 	set pastetoggle=<F11>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""	
+"================================================================="	
 "#}}}
-"#***Light Line Settings***{{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lightline = {
-      \ 'colorscheme': 'Tomorrow',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive','absolutepath'],['percent'],['ctrlpmark'] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
-      \   'filename': 'LightlineFilename',
-      \   'fileformat': 'LightlineFileformat',
-      \   'filetype': 'LightlineFiletype',
-      \   'fileencoding': 'LightlineFileencoding',
-      \   'mode': 'LightlineMode',
-      \   'ctrlpmark': 'CtrlPMark',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
-      \ },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
-      \ }
-function! LightlineModified()
-  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightlineReadonly()
-  return &ft !~? 'help' && &readonly ? 'RO' : ''
-endfunction
-
-function! LightlineFilename()
-  let fname = expand('%:t')
-  return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
-        \ fname == '__Tagbar__' ? g:lightline.fname :
-        \ fname =~ '__Gundo\|NERD_tree' ? '' :
-        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \ &ft == 'unite' ? unite#get_status_string() :
-        \ &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
-
-function! LightlineFugitive()
-  try
-    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-      let mark = ''  " edit here for cool mark
-      let branch = fugitive#head()
-      return branch !=# '' ? mark.branch : ''
-    endif
-  catch
-  endtry
-  return ''
-endfunction
-
-function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-  autocmd FileType text setlocal textwidth=78
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-endif
-
-function! LightlineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightlineMode()
-  let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == 'ControlP' ? 'CtrlP' :
-        \ fname == '__Gundo__' ? 'Gundo' :
-        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ fname =~ 'NERD_tree' ? 'NERDTree' :
-        \ &ft == 'unite' ? 'Unite' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ &ft == 'vimshell' ? 'VimShell' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! CtrlPMark()
-  if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
-    call lightline#link('iR'[g:lightline.ctrlp_regex])
-    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
-          \ , g:lightline.ctrlp_next], 0)
-  else
-    return ''
-  endif
-endfunction
-
-let g:ctrlp_status_func = {
-  \ 'main': 'CtrlPStatusFunc_1',
-  \ 'prog': 'CtrlPStatusFunc_2',
-  \ }
-
-function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
-  let g:lightline.ctrlp_regex = a:regex
-  let g:lightline.ctrlp_prev = a:prev
-  let g:lightline.ctrlp_item = a:item
-  let g:lightline.ctrlp_next = a:next
-  return lightline#statusline(0)
-endfunction
-
-function! CtrlPStatusFunc_2(str)
-  return lightline#statusline(0)
-endfunction
-
-let g:tagbar_status_func = 'TagbarStatusFunc'
-
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-    let g:lightline.fname = a:fname
-  return lightline#statusline(0)
-endfunction
-
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
-
-let g:unite_force_overwrite_statusline = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"#***Status Line Settings***{{{
+"================================================================="
+"##################Status Line Settings###########################"
+"================================================================="
+     set rtp+=~/.config/powerline/bindings/vim
+	  
+    let g:powerline_pycmd = "py"
+	 python from powerline.vim import setup as powerline_setup
+	 python powerline_setup()
+	 
+"================================================================"
 "#}}}
 "#***Fuctions***{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================================"
+"########################Fuctions################################"
+"================================================================"
 func! WordProcessorMode()
 	setlocal textwidth=80
 	setlocal smartindent
@@ -357,21 +299,57 @@ fun! RangerChooser()
     endif
     redraw!
 endfun
-map ,r :call RangerChooser()<CR>
-function! OpenCurrentLine()
-	let line = getline (".")
-	Let line = substitute(line, '^\(_*\)$','"\1'","g")
-	exec "!xdg-open" line '>&/dev/null &'
-endfunction
-map <f8> :call OpenCurrentLine()
- command Preview :!firefox %<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================================="
 "#}}}
+"#***folding**** {{{
+"------------------------------------------------------
+" enable folding; http://vim.wikia.com/wiki/Folding
 
 
+" fold color
+hi Folded cterm=bold ctermfg=DarkBlue ctermbg=none
+hi FoldColumn cterm=bold ctermfg=DarkBlue ctermbg=none
+
+"refocus folds; close any other fold except the one that you are on
+nnoremap ,z zMzvzz
 
 
+"}}}
+" reopen file where you left off at{{{{
+" http://stackoverflow.com/questions/774560
+" make sure to have permissions to ~/.viminfo if it doesnt work
+" sudo chown user:group ~/.viminfo
+" where user is your username and group is often the same as your username
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
 
+"}}}
+" Abreviations {{{
+" -----------------------------------------------------------------------------
+
+" Time
+iab _datetime <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
+iab _time <C-R>=strftime("%H:%M")<CR>
+iab _date <C-R>=strftime("%d %b %Y")<CR>
+
+" Personal
+iab _name Vicente Gimeno Morales - Electro7
+iab _mail vgimeno@grupocener.com
+
+" Heads
+iab _ct #-----------------------------------------------------------------------------#<ESC>ki
+iab _cc // <CR>//----------------------------------------------------------------------------<ESC>ki
+
+" HOME
+iab _home ~/
+
+"}}}
+"********************************************
 
 
 

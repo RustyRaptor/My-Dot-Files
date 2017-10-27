@@ -1,0 +1,780 @@
+#################################################################
+#┌─────────────────────────────────────────────────────────────┐#
+#│ ______        __      __  __                                │#
+#│/\__  _\      /\ \    /\ \/\ \  __            __             │#
+#│\/_/\ \/    __\ \ \/'\\ \ `\\ \/\_\    ___   /\_\     __     │#
+#│   \ \ \  /'__`\ \ , < \ \ , ` \/\ \ /' _ `\ \/\ \  /'__`\   │#
+#│    \ \ \/\  __/\ \ \\`\\ \ \`\ \ \ \/\ \/\ \ \ \ \/\ \L\.\_ │#
+#│     \ \_\ \____\\ \_\ \_\ \_\ \_\ \_\ \_\ \_\_\ \ \ \__/.\_\│#
+#│      \/_/\/____/ \/_/\/_/\/_/\/_/\/_/\/_/\/_/\ \_\ \/__/\/_/│#
+#│                                             \ \____/        │#
+#│                                              \/___/         │#
+#└─────────────────────────────────────────────────────────────┘#
+#################################################################
+#    ___       ___       ___       ___       ___       ___   ####
+#   /\  \     /\  \     /\__\     /\  \     /\__\     /\__\  ####
+#  /::\  \   /::\  \   /::L_L_   /::\  \   /:/ _/_   /:| _|_ ####
+# /::\:\__\ /:/\:\__\ /:/L:\__\ /::\:\__\ /:/_/\__\ /::|/\__\####
+# \/\::/  / \:\/:/  / \/_/:/  / \:\:\/  / \:\/:/  / \/|::/  /####
+#    \/__/   \::/  /    /:/  /   \:\/  /   \::/  /    |:/  / ####
+#             \/__/     \/__/     \/__/     \/__/     \/__/  ####
+#################################################################
+#!/usr/bin/pdmenu 
+# Author - TekNinja-Kevin Tangereen Spidermankevin78@gmail.com 
+# Last Update October 23th 2017
+# License - © 2017 WTFPL - http://www.wtfpl.net/ 
+#===============================================================#
+#======Menu Setting======{{{
+preproc:echo menu:main:`whoami`@`hostname`\'s menu
+# Set a pleasing color scheme.
+color:desktop:black:red
+color:title:red:black
+color:base:yellow:red
+color:menu:black:brightblue
+color:menuhot:red:black
+color:unselmenu:brown:gray
+color:selbar:red:black
+#========================#
+#}}}
+#=======Main Menu========{{{
+#=======================#
+#==Define the main menu=#
+#=======================#
+menu:main:Main Menu
+	nop:*****************
+	nop:*****************
+    nop:*****Groups******
+	show:_System Tools...::system-tools
+	show:_Office Tools...::tools
+	show:_Multimedia Tools...::media
+	show:_Emulators...::emulators
+	show:_Programing...::programming
+	show:G_raphigs...::graphics
+	show:_Web Devalapment...::web
+	show:_Games...::games
+    nop:*****************
+	show:_Debian Menus..::/Debian
+	nop
+    nop:****Services*****
+	exec:_1 File Manger(Ranger)...::/usr/local/bin/ranger
+	exec:_5 WWW..(uzbl)...:noclear:/usr/bin/uzbl-tabbed >/dev/null 2>&1 &
+	exec:_6 Check Email(alpine)...::/usr/bin/alpine
+	exec:_2 File Editor(vim)...::/usr/bin/vim
+    nop:*******************
+	exec:_7 Daily Bread...:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/bread/db.exe >/dev/null 2>&1 &
+	exec:_8 Random Quote...:display:/usr/games/fortune
+exit:E_xit
+#========================#
+#}}} 
+#Multimedia menu{{{
+menu:media:Multimedia Tools
+	exec:Music On Console Player::mocp
+	exec:MusikCube::/home/kevin/bin/musiKcube
+	exec:NCMPCPP::ncmpcpp
+	exec:AlsaMixerd::alsamixer
+	exec:MVP Media Player::mvp
+	exec:VLC::/usr/bin/nvlc
+	exec:MxPlay:/usr/bin/dosbx /media/Games/DOS_Tools/mpxplayx/bin/mpxplay.exe >/dev/null 2>&1 &
+nop
+	exit:_Main Menu
+#}}} 
+#Debian Menu{{{ 
+#If you edit this file, you will probably not want to remove the
+#following section, which makes menus of Debian apps available.
+preproc: \
+	if tty|egrep -q "tty[0-9]|vc/[0-9]|console"; then 	\
+		cat /var/lib/pdmenu/pdmenurc.vc;		\
+	elif [ "$DISPLAY" ]; then				\
+		cat /var/lib/pdmenu/pdmenurc.x11;		\
+	else							\
+		cat /var/lib/pdmenu/pdmenurc;			\
+	fi
+
+#}}}
+#=======games menu========{{{
+		menu:games:Games
+				show:_Action Platformer Games...::actionp-games
+				show:A_rcade Games...::arcade
+				show:_Board Games...::Board
+				show:_Card Games...::Card
+				show:F_ligth Sim & StarFighter Games...::sf-games
+				show:_FPS Games...::fps-games
+				show:_Puzzles...::Puzzles
+				show:Ra_cing Games...racing
+				show:Roug_e Like Games...::Rogue
+				show:R_ole Playing Games...::rpg
+				show:_7 Scrolling Shooter Games...::ss-games
+				show:St_rategy...::Strategy
+				show:S_miulation...::Simulation
+				show:Text Adventure...::text
+				show:_Toys...::toys
+				nop
+				exit:_Main menu...
+#=========================#
+#Action Games menu{{{
+		menu:actionp-games:Action Games
+				exec:_1 Abuse:noclear:/usr/bin/dosbox /media/Games/Dos_Games/abuse/ABUSE/ABUSE.EXE >/dev/null 2>&1 &
+				exec:_2 Alex the Allegator 4:noclear:/usr/games/alex4 >/dev/null 2>&1 &
+				exec:_3 Alien Bread:noclear:/usr/bin/dosbox /media/Games/Dos_Games/alien-breed/alien.exe >/dev/null 2>&1 &
+				exec:_4 Alien Carnage:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Alien-Carnage/CARNAGE.EXE  >/dev/null 2>&1 &
+				exec:_5 Amazing Spider-Man:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Amazing-Spider-man/SPIDEY.EXE >/dev/null 2>&1 &
+				exec:_6 Another world:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Another-World/another.exe >/dev/null 2>&1 &
+				exec:_9 Crystal Caverns:noclear:noclear:/usr/bin/dosbox /media/Dos_Games/crystal-caves/CC1.EXE >/dev/null 2>&1 &
+				exec:1_1 Duke Nukem:noclear:/usr/bin/dosbox /media/Games/Dos_Games/duke1/dn1.exe >/dev/null 2>&1 &
+				exec:_A Duke nukem 2d:noclear:/usr/bin/dosbox /media/Games/Dos_Games/DUKE2/NUKEM2.EXE >/dev/null 2>&1 &
+				exec:Dragons Lair 3D:noclear:/usr/bin/wine /media/Games/wingames/DragonsLair3D/BIN/DL3D.EXE
+				exec:_Frogatto:noclear:/usr/games/frogatto >/dev/null 2>&1 &
+				exec:SuperTu_x:noclear:/usr/games/supertux >/dev/null 2>&1 &
+				exec:First Samurid:noclear:/usr/bin/dosbox /media/Games/Dos_Games/first-samurai/SAMURAI.CO >/dev/null 2>&1 &M
+				exec:Flash Back:noclear:/usr/bin/dosbox /media/Games/Dos_Games/fb/fb.exe >/dev/null 2>&1 & 
+				exec:gods:noclear:/rom/bin/dosbox /media/Games/Dos_Games/Gods/GODS.EXE >/dev/null 2>&1 &
+				exec:Hocus Pocus:noclear:/usr/bin/dosbox /media/Games/Dos_Games/HOCUS/HOCUS.EXE >/dev/null 2>&1 &
+				exec:Horror Zombies-From-The Crypt:noclear:/usr/bin/dosbox /media/Games/Dos_Games/horror-zombire-from-the-crypt/HZEGA.EXE >/dev/null 2>&1 &
+				exec:Jumpman:noclear:/usr/bin/dosbox /media/Games/Dos_Games/1jman/jman.exe >/dev/null 2>&1 &
+				exec:Jump Jet:noclear:/usr/bin/dosbox /media/Games/Dos_Games/jumpjet/JUMPJET.EXE >/dev/null 2>&1 &
+				exec:Jill of the jungle:noclear:/usr/bin/dosbox /media/Games/Dos_Games/jill/jill.exe >/dev/null 2>&1 &
+				exec:James Pond 2 Robo Cod:noclear:/usr/bin/dosbox /media/Games/Dos_Games/robocod/ROBOCOD.EXE  >/dev/null 2>&1 &
+				exec:JET PACK:noclear:/usr/bin/dosbox /media/Games/Dos_Games/jetpak13/jetpak.exe  >/dev/null 2>&1 &
+				exec:Jazz jackrabbit:noclear:/usr/bin/dosbox /media/Games/Dos_Games/jazz/jazz.exe  >/dev/null 2>&1 &
+				exec:Joust:noclear:/usr/bin/dosbox /media/Games/Dos_Games/joust-vga/JOUST.EXE  >/dev/null 2>&1 &
+				exec:Karateka:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Karateka/KARATEKA.EXE  >/dev/null 2>&1 &
+				exec:The Last Ninja:noclear:/userbin/dosbox /media/Games/Dos_Games/last-ninja/NINJA.EXE  >/dev/null 2>&1 &
+				exec:he Last Ninja 2 Back With Vingance:noclear:/usr/bin/dosbox /media/Games/Dos_Games/last-ninja-2/NINJA.COM  >/dev/null 2>&1 & 
+				exec:Lost Vikings 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/LV2/L2.bat  >/dev/null 2>&1 &
+				exec:Mystic Towers:noclear:/usr/bin/dosbox /media/Games/Dos_Games/TOWERSSW/TOWERS.EXE >/dev/null 2>&1 &
+				exec:Mortal Kombat:noclear:/usr/bin/dosbox /media/Games/Dos_Games/MK/MK.EXE >/dev/null 2>&1 &
+				exec:Kombot 3:noclear:/usr/bin/ dosbox /media/Games/Dos_Games/mortalkombatiii/MK3.EXE >/dev/null 2>&1 &
+				exec:Mega Man X:noclear:/usr/bin/dosbox /media/Games/Dos_Games/MegaManX/megaman/MMX/MMXRUN.EXE >/dev/null 2>&1 &
+				exec:Mario & Lugui:noclear:/usr/bin/dosbox /media/Games/Dos_Games/mario/MARIO.EXE >/dev/null 2>&1 &
+				exec:On Must Fall 2097:noclear:/usr/bin/bosbox /media/Games/Dos_Games/One-Must-Fall-2097/OMF.EXE >/dev/null 2>&1 &
+				exec:Mario Bros VGA:noclear:/usr/bin/dosbox /media/Games/Dos_Games/mario-bros-vga/MARIO.EXE >/dev/null 2>&1 &  
+				exec:Seek & Destory:/rom/usr/dosbox /media/Games/Dos_Games/SEEKSW1/SEEK.EXE >/dev/null 2>&1 &
+				exec:ourny To The West:/rom/usr/dosbox /media/Games/Dos_Games/Westadv/WEST.EXE >/dev/null 2>&1 &
+				exec:Tomb Raider:/usr/bin/dosbox media/Games/Dos_Games/TombRaider/tomb.bat >/dev/null 2>&1 &
+				exec:Worm:noclear:urxvt -e worm >/dev/null 2>&1 &
+				exec:Xargon:/usr/bin/dosbox /media/Games/Dos_Games/Xargon/XARGON1.EXE >/dev/null 2>&1 &
+				exec:ZooL:/usr/bin/dosbox /media/Games/Dos_Games/zool/ZOOL.EXE >/dev/null 2>&1 &
+				exec:Critical Annihilation:noclear:media/Games/linuxGames/CriticalAnnihilationLinux20141104 >/dev/null 2>&1 &
+				exec:Abbaye Des Mort:noclear:/usr/bin/wine /media/Games/wingames/Abbaye_des_morts_1_2/Abbaye_des_morts.exe >/dev/null 2>&1 &
+				exec:Another Metroid 2 Remake:noclear:/usr/bin/wine /media/Games/wingames/AM2R_11/AM2R.exe >/dev/null 2>&1 &
+				exec:Prince Of Persia 3D:noclear:/usr/bin/wine '/media/Games/wingames/Ubisoft/Prince of Persia/Prince of Persia.exe' >/dev/null 2>&1 &
+				exec:Surgen Simulatore:noclear:/usr/wine /media/Games/wingames/Surgeon Simulator 2013/ss2013.exe >/dev/null 2>&1 &
+				exec:Brutel Leagend:noclear:/usr/bin/wine '/media/Games/wingames/Brutal Legend/BrutalLegend.exe' >/dev/null 2>&1 &
+				exec:American Mge's Alice:noclear:/usr/bin/wine /home/kevin/Desktop/ALICE/alice.exe >/dev/null 2>&1 &
+				exec:Cave Story:noclear:/usr/bin/wine /home/kevin/.wine/drive_c/Program Files/Cave Story Deluxe/CaveStory/Doukutsu.exe >/dev/null 2>&1 &
+				exec:Mass Destruction:noclear:/usr/bin/wine /media/Games/Dos_Games/massdest/MASSD.EXE >/dev/null 2>&1 &
+				exec:Critical Annihilation:noclear:/media/Games/linuxGames/CriticalAnnihilationLinux20141104/CriticalAnnihilation.x86	
+
+				nop
+				exit:_Back..
+#}}}
+#-----Adventure Games{{{
+###############################	
+		menu:Adventure:Adventure
+				exec:Benea_th A Steel Sky:noclear:/usr/games/scummvm -p /usr/share/scummvm/beneath-a-steel-sky sky >/dev/null 2>&1 &
+				exec:2400 A.D:noclear:/usr/bin/dosbox /media/Games/Dos_Games/2400_A.D >/dev/null 2>&1 &
+				exec:Oregon Trail:noclear:/usr/bin/dosbox /media/Games/Dos_Games/OREGON/OREGON.EXE >/dev/null 2.&1 &
+				exec:Planets Edge:noclear:/usr/bin/dosbox /media/Games/Dos_Games/planedge/pe/JOGAR.BAT >/dev/null 2.&1 & 
+				exec:Spirt OF Excalabir:noclear:/usr/bin/dosbox /media/Games/Dos_Games/SpiritofExcalibur/SoE/START.EXE >/dev/null 2.&1 & 
+				exec:Five Nights at Freddy's:noclear:/usr/bin/wine /media/Games/wingames/FiveNightsatFreddys2.exe >/dev/null 2.&1 &
+				exec:Five Nights at Freddy's:noclear:/usr/bin/wine /media/Games/wingames/FiveNightsatFreddys3.exe >/dev/null 2.&1 &
+
+###############################
+#}}}
+#----Arcade Games{{{
+		menu:arcade:Arcade Games
+				exec:S_pace Invaders:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Space_invaders/invaders.com >/dev/null 2.&1 &
+				exec:Sp_ace War---dosbox /media/Games/Dos_Games/Spacewar/SPACEWAR.EXE >/dev/null 2.&1 &
+				exec:Robots::robots
+				exec:Snake::sh -c 'snake;echo PRESS ENTER;read line'
+				exec:nInvaders:noclear:/usr/games/nInvaders   >/dev/null 2.&1 &
+				exec:Epic Pinball:noclear:/usr/bin/dosbox  /media/Games/Dos_Games/EPICPISW/PINBALL.EXE  >/dev/null 2.&1 &
+				exec:Pinball Ilusions:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Illusion/start.bat >/dev/null 2.&1 &
+				exec:Pinball Fantasy:noclear:/usr/bin/dosbox /media/Games/Dos_Games/PinballFantasiesResources/pf/pinball.exe >/dev/null 2.&1 &
+
+				nop
+				exit:_Back..
+#}}}
+#----Flight sim & Starfighter games#{{{
+		menu:sf-games:Flight Sim & StarFighter Games
+				exec:_1 Descent:noclear:/usr/bin/dosbox /media/Games/Dos_Games/descent/descent.exe >/dev/null 2>&1 &
+				exec:Star _Trek::trek
+				nop
+				exit:_back	
+#}}}
+#-----Fps Games Menu#{{{
+		menu:fps-games:FPS Games
+				exec:Alien Trilogy:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Alien-Trilogy/TRILOGY.EXE >/dev/null 2>&1 &
+				exec:Assult Cube:noclear:/usr/games/assaultcube 
+				exec:Blake Stone Aliens of Gold:noclear:/usr/bin/dosbox /media/Games/Dos_Games/BSTONE/BSTONE.BAT >/dev/null 2>&1 &
+				exec:Blood:noclear:/usr/bin/dosbox /media/Games/Dos_Games/blood/blood.exe >/dev/null 2>&1 &
+				exec:Chex quest:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Chex/chex1.bat >/dev/null 2>&1 &
+				exec:Chism the rift:noclear:/usr/bin/dosbox /media/Games/Dos_Games/chasm-the-rift/CHASM.EXE >/dev/null 2>&1 &
+				show:Chocolet Doom...::c-doom
+				exec:Doomsday Engine:noclear:/usr/games/doomsday >/dev/null 2>&1 &
+				exec:Doom(msdos):noclear:/usr/bin/dosbox /media/Games/Dos_Games/Doom/doom1/DOOM/DOOM.EXE >/dev/null 2>&1 &
+								 exec:Duke Nukem 3D:novlesr:/usr/bin/dosbox /media/Games/Dos_Games/duke3d/DUKE3D.EXE >/dev/null 2>&1 &
+											 exec:ExoDemon:noclear:/media/Games/linuxGames/Exodemon_Linux_v0.4/Exodemon_Linux_v0.4.x86_64
+													  exec:Free Doom Phase 1:noclear:/usr/games/freedoom >/dev/null 2>&1 &
+															exec:Free Doom Phase 2:noclear:/usr/games/freedoom2 >/dev/null 2>&1 &
+																  exec:Half-Life:noclear:/usr/bin/wine /home/kevin/.wine/drive_c/Sierra/Half-Life/hl.exe >/dev/null 2>&1 &
+																	 exec:Heratic:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Heretic 1 (1994)(Id Software)/heretic.exe >/dev/null 2>&1 &
+																		exec:Hexen:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Hexen/hexen.exe >/dev/null 2>&1 &
+																		   exec:Halo:noclear:/usr/bin/wine /media/Games/wingames/Halo/halo.exe >/dev/null 2>&1 &
+																		   exec:Kens labrynth:noclear:/usr/bin/dosbox /media/Games/Dos Games/KENLAB/KEN.EXE >/dev/null 2>&1 &
+																		   exec:Kiloblaster:noclear:/usr/bin/dosbox media/Games/Dos_Games/Kiloblaster/KILO.BAT >/dev/null 2>&1 &
+																		   exec:Marathon:noclear:/usr/bin/alephone >/dev/null 2>&1 &
+																		   exec:Power Slave:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Powerslave/MENU.EXE >/dev/null 2>&1 &
+																		   exec:OpenArena:noclear:/usr/games/openarena >/dev/null 2>&1 &
+																		   exec:PrBoom+:noclear:/usr/games/prboom-plus >/dev/null 2>&1 &
+																		   exec:Quake _III Arena:noclear:/usr/games/quake3 quiet >/dev/null 2>&1 &
+																		   exec:Quake:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Quake/quake.exe >/dev/null 2>&1 &
+																		   exec:Rise of The Triadd:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ROTTSW/ROTT.EXE >/dev/null 2>&1 &
+																		   exec:Red Eclisp:noclear:/media/Games/linuxGames/redeclipse-1.5.8/bin/x86/redeclipse_linux >/dev/null 2>&1 &
+																		   exec:Shadow Worrior/:noclear:/usr/bin/dosbox /media/Games/Dos_Games/SHADOWSW/SW.EXE >/dev/null 2>&1 &
+																		   exec:Star Wars Dark Forces:noclear:/usr/bin/dosbox /media/Games/Dos_Games/sdf/dark.exe >/dev/null 2>&1 &
+																		   exec:Strife:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Strife
+																		   exec:Wolfinstin 3d:noclear:/usr/bin/dosbox /media/Games/Dos_Games/wolf3d/WOLF3D/WOLF3D.EXE >/dev/null 2>&1 &
+																		   exec:Wolfinstine 3D Part 2 Spear of Destiny---dosbox /media/Games/Dos_Games/SPEAR/SPEAR.BAT
+																		   exec:Xonotic:noclear:/media/Games/Xonotic/Xonotic-linux32-glx >/dev/null 2.&1 &
+#}}}	
+#Doom Menu#{{{
+		nop
+				exit:_back
+##############################
+#cdoom menu
+				menu:c-doom:Chocolet Doom
+				exec:_Chocolate Doom:noclear:/usr/games/chocolate-doom >/dev/null 2>&1 &
+				exec:Chocolate _Heretic:noclear:/usr/games/chocolate-heretic >/dev/null 2>&1 &
+				exec:Choco_late Hexen:noclear:/usr/games/chocolate-hexen >/dev/null 2>&1 &
+				exec:Chocolate Server::/usr/games/chocolate-server >/dev/null 2>&1 &
+
+				exec:Chocolate Setup:noclear:/usr/games/chocolate-setup >/dev/null 2>&1 &
+				nop
+				exit:_back
+#}}}
+#-----Board Games#{{{
+##############################
+		menu:Board:Board Games
+				exec:_Backgammon::backgammon -pb
+				exec:_Chess Net::/usr/games/xboard -ics -icshost chess.net
+				exec:_Default::/usr/games/xboard -ics
+				exec:_Free I.C.S.::/usr/games/xboard -ics -icshost freechess.org
+				exec:_GnuChess::/usr/games/gnuchess >/dev/null 2>&1 &
+				exec:G_omoku::gomoku
+				exec:_Monopoly::monop
+				exec:_Penguin Taipei:noclear:/usr/games/ace-taipei >/dev/null 2>&1 &
+				exec:Penguin _Taipei-Editor:noclear:/usr/games/ace-taipedit >/dev/null 2>&1 &
+				exec:_XBoard:noclear:/usr/games/xboard -xncp >/dev/null 2>&1 &
+				exec:XBo_ard (passive chessboard):noclear:/usr/games/xboard -ncp >/dev/null 2>&1 &
+												  exec:Argo Checkers:noclear:/usr/bin/dosbox  /media/Games/Dos_Games/achkv12/CHECKERS.EXE >/dev/null 2.&1 &
+																		  exec:Four-n-a-Row:noclear:/usr/games/four-in-a-row >/dev/null 2.&1 & 
+																							exec:Five or more:noclear:/usr/bin/five-or-more >/dev/null 2.&1 &
+																										   exec:dosbox /media/Games/Dos_Games/cm2000/CMASTER.EXE
+																													exec:Battle chess:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Battle-Chess/CHESS.EXE
+																															 exec:Rival Chess:noclear:/usr/bin/dosbox /media/Games/Dos_Games/rival-chess/RIVAL.EXE
+																																   exec:Flip:noclear:/usr/games/sgt-flip
+																																	  exec:Mahjoggin:noclear:/usr/bin/Gnome-Magjong
+																																		 exec:Pairs:noclear:/usr/bin/pairs
+																																			exec:Monopoly Deluxe:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Monopoly-Deluxe/MP.EXE
+
+																																			   nop
+																																					   exit:_back
+#}}}
+#-----Card Games{{{{
+###############################	
+		menu:Card:Card Games
+				exec:_Canfield::canfield
+				exec:C_ribbage::cribbage
+				exec:_Gnome Solitaire Games:noclear:/usr/games/sol >/dev/null 2>&1 &
+				exec:Go _Fish::sh -c 'go-fish;echo;echo PRESS ENTER;read line'
+				exec:_Mille Bornes::mille
+				exec:_Penguin Canfield:noclear:/usr/games/ace-canfield >/dev/null 2>&1 &
+				exec:P_enguin Freecell:noclear:/usr/games/ace-freecell >/dev/null 2>&1 &
+				exec:Pe_nguin Golf:noclear:/usr/games/ace-golf >/dev/null 2>&1 &
+				exec:Penguin _Solitaire:noclear:/usr/games/ace-solitaire >/dev/null 2>&1 &
+				exec:Peng_uin Spider:noclear:/usr/games/ace-spider >/dev/null 2>&1 &
+				exec:Penguin _Thornq:noclear:/usr/games/ace-thornq >/dev/null 2>&1 &
+
+###############################
+#}}}
+#-----Puzzle Games{{{
+		menu:Puzzles:Puzzle Games
+				exec:_Boggle::boggle
+				exec:_Hangman::hangman
+				exec:H_itori:noclear:/usr/games/hitori >/dev/null 2>&1 &
+				exec:_Palapeli:noclear:/usr/games/palapeli >/dev/null 2>&1 &
+				exec:Q_uadrapassel:noclear:/usr/games/quadrapassel >/dev/null 2>&1 &
+				exec:Penguin _Mastermind:noclear:/usr/games/ace-mastermind >/dev/null 2>&1 &
+				exec:P_enguin Merlin:noclear:/usr/games/ace-merlin >/dev/null 2>&1 &
+				exec:Pe_nguin Minesweeper:noclear:/usr/games/ace-minesweeper >/dev/null 2>&1 &
+				exec:Pen_guin Pegged:noclear:/usr/games/ace-pegged >/dev/null 2>&1 &
+				exec:_Bsd Tetris::sh -c 'tetris-bsd;echo;echo PRESS ENTER;read line'
+				exec:_Frozen-Bubble:noclear:/usr/games/frozen-bubble >/dev/null 2>&1 &
+				exec:_Neverball:noclear:/usr/games/neverballv >/dev/null 2>&1 &
+				exec:Ne_verputt:noclear:/usr/games/neverputt >/dev/null 2>&1 &
+				exec:Mines:noclear:noclear:/usr/games/gnome-mines >/dev/null 2>&1 &
+				exec:Lights Off:noclear:/usr/games/lightsoff  >/dev/null 2>&1 &
+				exec:Swell Foop:noclear:/usr/games/swell-foop >/dev/null 2>&1 &
+#############################
+#}}}
+#-----Racing Games{{{
+		menu:racing:Racing Games
+				exec:Arma_getron Advanced:noclear:/usr/games/armagetronad >/dev/null 2>&1 &
+				exec:_etracer:noclear:/usr/games/etracer >/dev/null 2>&1 &
+				exec:S_upertuxkart:noclear:supertuxkart >/dev/null 2>&1 &
+				exec:Outrun:noclear:/usr/bin/dosbox /media/Games/Dos_Games/outrun/OUTRUN.EXE
+				exec:Turbo-Out:noclear:/usr/bin/rundosbox /media/Games/Dos_Games/turbo-outrun/TROUT.COM
+				exec:Torcs:noclear:/usr/games/torcs >/dev/null 2>&1 &
+				exec:Carmagedin:noclear:/usr/bin/dosbox /usr/games/Dos_Games
+				exec:Grand Theft Auto:noclear:/usr/bin/wine /media/Games/Dos_Games/GTA/gtawin/gtawin.exe
+				exec:Destruction derby:noclear:/usr/bin/dosbox /usr/games/dosbox-destruction-derby
+				exec:ZoneRaid:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ZONERAID/RAID/RAID.EXE	
+				exec:Screamer:noclear:/usr/bin/dosbox /media/Games/Dos_Games/screamer/JOGAR.BAT-
+				exec:Lotus The Ultimate Challange:noclear:/usr/bin/dosbox /media/Games/Dos_Games/lotus/lotus.exe
+				exec:Quarantine:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Quarantine/Q.EXE
+				exec:Quarantine:noclear:/usr/bin/dosbox /media/Games/Dos_Games/quarantine2/RW.EXE
+				exec:Wacky Wheels:noclear:/usr/bin/dosbox /media/Games/Dos_Games/wwheels/WW.EXE
+				exec:ZoneRaid:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ZONERAID/RAID/RAID.EXE	
+				exec:Screamer:noclear:/usr/bin/dosbox dosbox /media/Games/Dos_Games/screamer/JOGAR.BAT
+				exec:Lotus The Ultimate Challange:noclear:/usr/bin/dosbox dosbox /media/Games/Dos_Games/lotus/lotus.exe
+				exec:Quarantine:noclear:/usr/bin/dosbox dosbox /media/Games/Dos_Games/Quarantine/Q.EXE
+				exec:Quarantine 2:noclear:/usr/bin/dosbox dosbox /media/Games/Dos_Games/quarantine2/RW.EXE
+				exec:Wacky Wheels:noclear:/usr/bin/dosbox dosbox /media/Games/Dos_Games/wwheels/WW.EXE
+#}}}
+#-----Rogue Games{{{
+		menu:Rogue:Rogue Likes
+				exec:A Folse Saint:/usr/bin/uzbl "/media/Games/afsahr-v1.3/play.html" >/dev/null 2>&1 &
+				exec:Alians The Rogue Like:noclear:/media/Games/linuxGames/aliensrl-linux-i386-082/AliensRl.sh  >/dev/null 2>&1 &
+				exec:Anceint Domans Of Mystory:noclear:/usr/bin/wine /media/Games/adom/adom.exe >/dev/null 2>&1 &
+				exec:Angband(linux):noclear:/usr/local/etc/angband >/dev/null 2>&1 &
+									exec:Angband(Dos):noclear:/usr/bin/dosbox /media/Games/Dos_Games/angband/angband.exe >/dev/null 2>&1 &
+													  exec:Atrogue:noclear:sh /media/games/linuxGames/atrogue-0.3.0/atrogue >/dev/null 2>&1 &
+																  exec:Cataclys::/media/Games/linuxGames/cataclysmdda-0.B/cataclysm
+																		   exec:Castlevinia the Rogue Like:noclear:sh /home/kevin/bin/cvrl.sh
+																				 exec:Changeband:noclear:/usr/bin/wine /media/Games/wingames/chengband.0.0.138/Chengband.exe >/dev/null 2>&1 &
+																					   exec:Classic Rogue:noclear:./media/Games/linuxGames/ClassicRogue/ClassicRogue >/dev/null 2>&1 &
+																						  exec:Doom The Rogue Like:noclear:/usr/bin/wine '/home/kevin/.wine/drive_c/Program Files/DoomRL/doomrl.exe' >/dev/null 2>&1 &
+																							 exec:_Dungeon Crawl::/usr/games/crawl
+																								exec:Dungeon _Crawl (tiles):noclear:/usr/games/crawl-tiles >/dev/null 2>&1 &
+																															exec:DungeonRl:noclear:/media/Games/linuxGames/dungonrl/DungeonRL >/dev/null 2>&1 &
+																																				 exec:Frozen Depths::/media/Games/linuxGames/FD105Lin/fdepths
+																																								exec:_Hack::hack
+																																											exec:Keeper:noclear:/usr/bin/wine /media/Games/keeperRL >/dev/null 2>&1 &
+																																													 exec:You only live once:noclear:/media/Games/linuxGames/liveonce005/linux/liveonce >/dev/null 2>&1 &
+																																														   exec:Lotus a Town For Rogues:noclear:/usr/bin.wine "/media/Games/Lotus, a town for rogue/Lotus, a town for rogue" >/dev/null 2>&1 &
+																																															  exec:_Meritous:noclear:/usr/games/meritous >/dev/null 2>&1 &
+																																																 exec:Metroid The Rogue Like:noclear:java -jar /media/Games/javagames/metroidrl073/metroidRL-curses.sh >/dev/null 2>&1 &
+																																																	exec:Moria:noclear:/usr/bin/dosbox /media/Games/Dos_Games/moria/MORIA.EXE
+																																																	   exec:Mount Drasher:noclear:jave -jar  /media/Games/javagames/mountdasher
+																																																	   exec:Mythos:noclear:/usr/bin/jave -jar '/media/Games/linuxGames/MythosRL-0.0.2/MythosRL.jar' >/dev/null 2>&1 &
+																																																	   exec:_NetHack (No GUI)::/usr/games/nethack-console/
+																																																	   exec:Omega:noclear:/home/kevin/bin/omega/omega
+																																																	   exec:Powder:noclear:/home/kevin/bin/powder/powder >/dev/null 2>&1 &
+																																																	   exec:Rogue(msdos):noclear:/usr/bin/dosbox /media/Games/Dos_Games/rogue/ROGUE.EXE >/dev/null 2>&1 &
+																																																						 exec:Rogue Empire:noclear:'/media/Games/linuxGames/Rogue Empire v0.7.9/RE.x86' >/dev/null 2>&1 &
+																																																										exec:Streets of Rogue:noclear:/media/Games/linuxGames/sorlinux/StreetsOfRogueLinux.x86 >/dev/null 2>&1 &
+																																																													exec:Tomb:noclear:/usr/games/pernband >/dev/null 2>&1 &
+																																																															 exec:Trog:noclear:: /media/Games/linuxGames/TROG-master
+																																																																   exec:Xenomarine:noclear:/usr/bin/wine '/media/Games/linuxGames/Xenomarine Linux Demo 2.3/ Xenomarine Linux Demo 2.3.x86' >/dev/null 2>&1 &
+
+																																																																	  nop
+																																																																			  exit:_Main menu..
+#}}}
+#-----Role Playing Games{{{.
+		menu:rpg:Role Playing Games
+				exec:AD & D Al Quide:noclear:/usr/bin/Dosbox /media/Games/Dos_Games/Al-Qadim/GENIE.BAT >/dev/null 2>&1 &
+				exec:AD & D Dungeon hack:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Dungeon_Hack/HACK.BAT >/dev/null 2>&1 &
+				exec:AD & D Gateway To The Savage Fronter:noclear:/usr/bin/dosbox /media/Games/Dos_Games/gateway-to-the-savage-frontier/GATE/GAME.EXE >/dev/null 2>&1 &
+				exec:AD & D Treasers Of The Savage Fronter:noclear:/usr/bin/dosbox /media/Games/Dos_Games/TREA/GAME.EXE >/dev/null 2>&1 &
+				exec:AD & D pools of darknessd:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Pools-of-Darkness/STARTUP.EXE >/dev/null 2>&1 &
+				exec:AD & D Ulimited-Adventuresd:noclear:/usr/bin/osbox /media/Games/Dos_Games/Unlimited-adventures/go.bat >/dev/null 2>&1 &
+				exec:AD & D NeverWenter Knights (aol Game):noclear:/usr/bin/dosbox /media/Games/Dos_Games/neverwint/GAME.EXE >/dev/null 2>&1 &
+														   exec:AD & D Secert of The SilverBlades:noclear:/usr/bin/dosbox /media/Games/Dos_Games/secret-of-the-silver-blades/START.EXE >/dev/null 2>&1 &
+																						 exec:AD & D Menzoberranzon---dosbox /media/Games/Dos_Games/MENZO/MENZO.BAT
+																												 exec:_Adonthell - Waste's Edge:noclear:/usr/games/adonthell-wastesedge >/dev/null 2>&1 &
+																																   exec:Albion:noclear:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Albion/MAIN.EXE >/dev/null 2>&1 &
+																																			   exec:Arx libertatis:noclear:/usr/bin/wine /media/Games/wingames/arch/ArxLibertatis >/dev/null 2>&1 &
+																																						exec:Altermate Reality The City:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ARTC/AR.EXE >/dev/null 2>&1 &
+																																								 exec:Amulets-And-Amor:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Amulets-and-Armor/AA.bat >/dev/null 2>&1 &
+																																									   exec:Anvil of Dawn:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Anvil/Anvil.exe >/dev/null 2>&1 &
+																																										  exec:Ancients I Deatb Watch:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ANCIENSW/BEGIN.EXE >/dev/null 2>&1 &
+																																											 exec:Bards tale:noclear:/usr/bin/dosbox  /media/Games/Dos_Games/Bards_Tale_The/bard.exe >/dev/null 2>&1 & 
+																																												exec:Bards Tale 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/bardstale2/DK.EXE >/dev/null 2>&1 & 
+																																												   exec:Bards Tale 3:noclear:/usr/bin/dosbox /media/Games/Dos_Games/bards3/THIEF.EXE >/dev/null 2>&1 &
+																																												   exec:Battle Tech  The Crescent Hawks Inception:noclear:/usr/bin/dosbox  /media/Games/Dos_Games/BattleTech1/BTECH.EXE >/dev/null 2>&1 &
+																																												   exec:Battke Tech 2  The Revenge of Hawksd:noclear:/usr/bin/osbox /media/Games/Dos_Games/Btech2/REVEMGE.EXE >/dev/null 2>&1 & 
+																																												   exec:Betrayle At Krondor:noclear:/usr/bin/dosbox /media/Games/Dos_Games/krondor/KRONDOR.EXE >/dev/null 2>&1 &
+																																												   exec:Babblood:nocler:/usr/bin/dosbox /media/Games/Dos_Games/Bad-Blood/Bad-blood/BADBLOOD.EXE >/dev/null 2>&1 &
+																																												   exec:Buck Rogers Matrix Cubed:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Matrix/PLAY.BAT >/dev/null 2>&1 &
+																																												   exec:The Dark Heart Of Uukruld:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Dark-Heart/PLAY.BAT >/dev/null 2>&1 &
+																																												   exec:Diablo:noclear:/usr/bin/wine /media/Games/wingames/Diablo-RIP/Diablo.exe
+																																												   exec:Dungeon Master:/usr/bin/dosbox /media/Games/Dos_Games/dungeonmaster/dm.exe
+																																												   exec:Dusk of The Gods:/usr/bin/dosbox /media/Games/Dusk-of-the-gods/DUSK.COM
+																																												   exec:Dungeon Master 2:/usr/bin/dosbox /media/Games/Dos_Games/Dungeon_Master_2/DM2.BAT
+																																												   exec:Dungon Rush:noclear:/usr/bin/media/Games/linuxGames/dungeon-rushers-linux-preview-/Dugionrush.x86_64
+																																												   exec:Dragon Lord/:/usr/bin/dosbox media/Games/Dos_Games/DRAGLORD/DLORD.EXE
+																																												   exec:Dragon wars:/usr/bin/dosbox /mediaevin/Games/Dos Games/dragon_wars/DRAGON.COM
+																																												   exec:The Elder Scrolls Chapter 1:  Arana:/usr/bin/dosbox /media/Games/Dos_Games/ARENA/A.EXE
+																																												   exec:Eye of the Beholder:/usr/bin/dosbox /media/Games/Dos_Games/eob1/START.EXE
+																																												   exec:Eye of the Beholder 2:/usr/bin/dosbox /media/Games/Dos_Games/Eye2/START.EXE 
+																																												   exec:Elvira:/usr/bin/wine "media/Games/Amiga Games/Elvira/fs-uae.exe default.fs-uae 
+																																												   exec:Elvira 2 The Jaws of Cerberus:noclear:/usr/bin/dosbox /media/Games/Dos_Games/elvira-ii/cerberus.bat
+																																												   exec:Eye of The Beholder 3:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Eye3/EYE.BAT
+																																												   exec:Ulitima 7 (Exult Engine):noclear: /usr/games/exult
+																																																				 exec:Hero Quest:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Heroquest/Heroq/HERO.EXE
+																																																										 exec:The Immortal:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Immortal/IMMORTAL.EXE
+																																																														   exec:Ishar:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Ishar/start.exe
+																																																																	   exec:Ishar 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ishar-2/start.exe
+																																																																				exec:Ishar 3:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ishar-3/start.exe
+																																																																						 exec:Hired Guns:noclear:/usr/bin/dosbox /media/Games/Dos_Games/hired-guns/hg.bat
+																																																																							   exec:Knights of Xantar:noclear:/usr/bin/dosbox /media/Games/Dos_Games/kxentar/kx.exe
+																																																																								  exec:Lands of lore thorne of chaosd:noclear:/usr/bin/osbox /media/Games/Dos_Games/lands/lands-of-lore-the-throne-of-chaos/lore.bat
+																																																																									 exec:Legend of Faerghial:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Legend-of-faerghail/START.BAT
+																																																																										exec:Legand of Valuard:noclear:/usr/bin/osbox /mebia/Games/Dos_Games/Legends-of-valour/LOV.BAT
+																																																																										   exec:Excelsor:noclear:/usr/bin/dosbox /media/Games/Dos_Games/xlsior/EX.EXE
+																																																																										   exec:WaxWorks:noclear:/usr/bin/dosbox /media/Games/Dos_Games/waxworks/PLAY.BAT
+																																																																										   exec:Might & Magic:noclear:/usr/bin/dosbox /media/Games/Dos_Games/m&m1/MM.EXE
+																																																																										   exec:Might & Magic III Islans of Terra:noclear:/usr/bin/dosbox /media/Games/Dos_Games/m&m3/MM3.EXE
+																																																																										   exec:Might & Magic World Of Xeen:noclear:/usr/bin/dosbox /media/Games/Dos_Games/MM6/XEEN.EXE
+																																																																										   exec:Might & Magic Sword of Xeen:noclear:/usr/bin/dosbox /media/Games/Dos_Games/might-and-magic-swords-of-xeen_dos_01v4/swords.exe
+																																																																										   exec:Migic Candled:noclear:/usr/bin/dosbox /media/Games/Dos_Games/themagiccandle1/MCANDLE.EXE
+																																																																										   exec:Magic Candle :noclear:/usr/bin/2dosbox /media/Games/Dos_Games/the-magic-candle-ii-the-four-and-forty/MC2.EXE
+																																																																										   exec:Magic Candle 3:noclear:/usr/bin/dosbox /media/Games/Dos_Games/MC3/JOGAR.BAT
+																																																																										   exec:Psychic War:noclear:/usr/bin/dosbox /media/Games/Dos_Games/psychic-war/PW.EXE
+																																																																										   exec:Mines OF Titan:noclear:/usr/bin/dosbox /media/Games/Dos_Games/mars-saga/TITAN.EXE
+																																																																										   exec:God of Thunder:noclear:/usr/bin/dosbox /medi/Games/Dos_Games/gotfree/GOT.EXE
+																																																																										   exec:Madpara:noclear:/usr/bin/dosbox /media/Games/Dos_Games/madpara/GAME.EXE
+																																																																										   exec:Obitus:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Obitus/OBITUS.EXE
+																																																																										   exec:Princess maker 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Princess-Maker/PM2.EXE
+																																																																										   exec:Paper Dungeons Lite:noclear:/usr/bin//media/Games/linuxGames/Paper_Dungeons_Lite_Linux64_1.22.3/pdungeon.x86_64/media/Games/linuxGames/Paper_Dungeons_Lite_Linux64_1.22.3/pdungeon.x86_64
+																																																																										   exec:Raven loft stone prophet:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Ravenloft-Stone-Prophet/START.BAT
+																																																																										   exec:Raven loft strands possession:noclear:/usr/bin/dosbox /media/Games/Dos_Games/rloft/R.EXE
+																																																																										   exec:Realms of Cawdor:noclear:/usr/bin/dosbox /media/Games/Dos_Games/cawdor/CANDOR.BAT
+																																																																										   exec:Syndicate:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Syndicat/SYND.EXE
+																																																																										   exec:Robin Hood:noclear:/usr/bin/dosbox /media/Games/Dos_Games/robinhood/ROBIN.BAT
+																																																																										   exec:System shock:noclear:/usr/bin/dosbox /media/Games/Dos_Games/SShock/SSHOCK.EXE
+																																																																										   exec:spiret of Adventuredosbox /media/Games/Dos_Games/spirit-of-adventure/STARBYTE/SOA.BAT
+																																																																										   exec:Solorwindsdosbox /media/Games/Dos_Games/SOLARWIN/SOLAR1.EXE
+																																																																										   exec:Ultima I The First Age Of Darkness:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Ultima+/ULTIMA.EXE
+																																																																										   exec:Ultima II Revenge of the enchantress:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Ultima2+/ULTIMAII.EXE
+																																																																										   exec:Ultima III Exadus:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ultima-iii-exodus/Ultima3+/Ult3.bat
+																																																																										   exec:Ultima IV Quest of the Avatar:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ULTIMA4/ULTIMA.COM
+																																																																										   exec:Ultima V Warriors of Dystiny:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ultima5/ULTIMA.EXE
+																																																																										   exec:Ultima VI The False Prophet:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Ultima6/GAME.EXE
+																																																																										   exec:Ultima VII The Black Gate:noclear:/usr/bin/dosbox /media/Games/Dos_Games/U7/DOSBOX.BAT
+																																																																										   exec:Ultima VIII Pagan:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Pagan/U8.EXE
+																																																																										   exec:Ultim UnderWorld:noclear:/usr/bin/dosbox /media/Games/Dos_Games/uword/UW.EXE
+																																																																										   exec:Ultima UnderWorld 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/uu2/UW2.EXE
+																																																																										   exec:Wastland:noclear:/usr/bin/:dosbox /media/Games/Dos_Games/wasteland/WL.EXE/
+																																																																										   exec:Wizerdry I:noclear:/usr/bin/dosbox /media/Games/Dos_Games/wizardry/WIZ1.BAT
+																																																																										   exec:Wizerdry II:noclear:/usr/bin/dosbox /media/Games/Dos_Games/wizardry-ii-the-knight-of-diamonds/WIZ2.BAT
+																																																																										   exec:Wizerdr III:noclear:/usr/bin/dosbox /media/Games/Dos_Games/wizardry-iii-legacy-of-llylgamyn/WIZ3.BAT
+																																																																										   exec:Wizerdry I:noclear:/usr/bin/Vdosbox /media/Games/Dos_Games/wizardry-iv-the-return-of-werdna/WIZ4.BAT
+																																																																										   exec:Wizerdry V:noclear:/usr/bin/dosbox /media/Games/Dos_Games/WIZ5/WIZ5.COM
+																																																																										   exec:Wizerdry VI bane of the cosmic fordge:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Wizardry_6/bane.bat
+																																																																										   exec:Wizerdry VII crusaders of the dark servaint:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Wizardry_7/DS.EXE
+																																																																										   exec:wizerdry VIII:noclear:/usr/bin/wine '/home/kevin/.wine/drive_c/GOG Games/Wizardry 8/Wiz8.exe'
+																																																																										   exec:Wonders From Ys:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ys/YS.EXE
+																																																																										   exec:Yendoran Tales 1:noclear:/usr/bin/dosbox /media/Games/Dos_Games/yendor/PLAY.BAT
+																																																																										   exec:Yendoran Tales 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/yendor2/PLAY.BAT
+																																																																										   exec:Yendoran Tales 3:noclear:/usr/bin/dosbox /media/Games/Dos_Games/yendor3/PLAY.BAT
+																																																																										   exec:Xenomorph:noclear:/usr/bin/dosbox /media/Games/Dos_Games/xenomorph/xeno/xeno.exe
+																																																																										   exec:The Towerd:noclear:/usr/bin/osbox /media/Games/Dos_Games/TowLBan/TOWERS/TOWERS.EXE
+																																																																										   exec:Telengard:noclear:/usr/bin/dosbox /media/Games/Dos_Games/telen/TELEN.EXE
+																																																																										   exec:ManaSpark:noclear:/usr/bin/media/Games/linuxGames/ManaSpark-Linux-V0.4.18/ManaSpark.x86_64
+																																																																										   exec:Fort Trumph:noclear:/usr/bin/media/Games/linuxGames/fort-triumph-demo-0.5.6-linux/Fort-Triumph-Demo.x86_64
+																																																																										   exec:Paper Magicmedia/Games/linuxGames/Paper_Dungeons_Lite_Linux64_1.22.3/pdungeon.x86
+																																																																										   exec:Black Crupt:noclear:/usr/bin/wine "/media/Amiga Games/Black Crypt/fs-uae.exe Default.fs-uae
+																																																																										   exec:Hero Quest 2:noclear:/usr/bin/wine /media/Games/Amiga_Games/HeroQuest2/fs-uae.exe Default.fs-uae
+																																																																										   exec:Mythsh media/Games/Amiga_Games/Myth/myth
+																																																																										   exec:Micronomiconmedia:noclear:/usr/bin//Games/linuxGames/micronomicon_linux/micronomicon.x86
+																																																																										   exec:fnaf Worldw:noclear:/usr/bin/ine /media/Games/wingames/FNaF_World.exe
+																																																																										   exec:Ys The Oath in felghana:noclear:/usr/bin/wine media/Games/wingames/Ystheoathinfelghana/ysf_win_dx9.exe
+																																																																										   exec:Ys Orgins:noclear:/usr/bin/wine /media/Games/GOG_Games/Ys Origin/yso_win.exe
+																																																																										   exit:_back	
+#}}}
+#-----SCrolling Shooter Games{{{
+# Scolling Shooter Games
+		menu:ss-games:Scrolling Shooter Games
+				exec:Chromium _B.S.U.:noclear:/usr/games/chromium-bsu >/dev/null 2>&1 &
+				exec:Mach 3:noclear:/usr/bin/dosbox /media/Games/Dos_Games/mach3/MACH3.Exe
+				exec:aforce:noclear:/usr/bin/wine /media/Games/wingames/aforce/aforce.exe
+				exec:StarWars Tie Fighterdosbox /media/Games/Dos_Games/StarWarsTieFighter/tie.exe
+				exec:Gravity Force:noclear:/usr/bin/dosbox /media/games/Dos_Games/gf/GF.EXE
+				exec:Overkill:noclear:/usr/bin/dosbox /media/Games/Dos_Games/$overkill/OVERKILL.EXE
+				exec:Terminal Volecity:noclear:/usr/bin/dosbox /media/Games/Dos_Games/tv/game.exe
+				exec:Tyrian:noclear:/usr/bin/dosbox /media/Games/Dos_Games/tryian/tyrian.exe
+				exec:Wing Commandor:noclear:/usr/bin/dosbox /media/Games/Dos_Games/WingCom/WC.EXE
+				exec:Wing Commandor 2:noclear:/usr/bin/dosbox /media/Games/Dos_Games/wing-commander-ii-vengeance-of-the-kilrathi/wc2.exe
+				exec:Wing Commandor Acadamydosbox /media/Games/Dos_Games/wing-commander-academy/wca.exe
+				exec:Xenon2dosbox /media/Games/Dos_Games/xenon-2-megablast/XENON2.EXE
+				exec:Absolute Zero:noclear:/usr/bin/dosbox wine /media/Games/wingames/az102/az.exe
+				nop
+				exit:_back
+#}}}
+#-----Strategy Games{{{
+		menu:Strategy:Strate Brake as an exit to insertmodegy
+				exec:_0 A.D.:noclear:/usr/games/0ad >/dev/null 2>&1 &
+				exec:_Air Traffic Controller::sh -c 'atc ; echo;echo PRESS ENTER;read line'
+				exec:A_ttal ai:noclear:/usr/games/attal-ai >/dev/null 2>&1 &
+				exec:Attal _campaign editor:noclear:/usr/games/attal-campaign-editor >/dev/null 2>&1 &
+				exec:Atta_l client:noclear:/usr/games/attal-client >/dev/null 2>&1 &
+				exec:Attal sc_enario editor:noclear:/usr/games/attal-scenario-editor >/dev/null 2>&1 &
+				exec:Attal ser_ver:noclear:/usr/games/attal-server >/dev/null 2>&1 &
+				exec:Caesar:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Caeser/CEASAR.BAT
+				exec:_Battle for Wesnoth (1.10):noclear:/usr/games/wesnoth-1.10-nolog >/dev/null 2>&1 &
+												exec:_Freeciv client (GTK version):noclear:/usr/games/freeciv-gtk2 >/dev/null 2>&1 &
+																				   exec:F_reeciv server::/usr/games/freeciv-server
+																										   exec:_Sail::sail
+																														   exec:Gladabots:noclear:media/Games/linuxGames/Gladiabots_Alpha5.2_Linux/Botes.x86
+																																		 exec:Power dolls:noclear:/usr/bin/dosbox /media/Games/Dos Games/Dolls/pd.bat >/dev/null 2>&1 &
+																																					 exec:Star Command:noclear:usr/dosbox /media/Games/Dos_Games/star-command/Starcomm.exe >/dev/null 2>&1 &
+																																							  exec:Star Controll 2:noclear:/rom/bin/dosbox /media/Games/Dos_Games/star-control-ii/starcon2.com >/dev/null 2>&1 &
+																																									exec:Lemmings:noclear:/rom/bin/dosbox /media/Games/Dos_Games/Lemmings/lemmings.bat >/dev/null 2>&1 &
+
+																																										  exec:Power Monger:noclear:noclear:/rom/bin/dosbox /media/Games/Dos_Games/powermonger/PM.BAT 
+																																												  exec:Warcraft Orcs vs Humand:/rom/bin/dosbox dosbox /media/Games/Dos_Games/Warcraft/war.exe
+																																												  exec:Warcraft 2:/rom/bin/dosbox /media/Games/Dos_Games/WAR2/WAR2.EXE
+																																												  exec:Melstorm:noclear:/rom/bin/dosbox /media/Games/Dos_Games/Melstorm/melstorm.com
+																																												  exec:War of the LancE:noclear:/rom/bin/dosbox //media/Games/Dos_Games/war-of-the-lance/START.EXE
+																																												  exec:Scorched Earth:noclear:/rom/bin/dosbox /media/Games/Dos_Games/Scorched_Earth/scorch.exe
+																																												  exec:X-Com UFO Defense:noclear:/rom/bin/dosbox /media/Games/Dos_Games/x-com-ufo-defense/UFO/GO.COM 2>&1 &
+																																												  exec:dwarf Fortruce:noclear:/media/Games/linuxGames/df_linux/df 2>&1 &
+																																												  exec:7th Legion:noclear:/rom/bin/wine "/home/kevin/.wine/drive_c/Program Files/Epic MegaGames/7th Legion Shareware/legion.exe" >/dev/null 2>&1 &
+
+																																												  nop
+																																												  exit:_Main menu..
+#}}}
+#----simulation#{{{
+
+#############################	.
+		menu:Simulation:Simulation
+				exec:_OpenyTTD:noclear:/usr/games/openttd >/dev/null 2>&1 &
+				exec:_TORCS:noclear:/usr/games/torcs >/dev/null 2>&1 &
+				exec:_Rock Star:noclear:/usr/bin/dosbox /media/Games/Dos_Games/rockstar/RS.BAT >/dev/null 2>&1 &
+				exec:N_inetest:noclear:minetest  >/dev/null 2>&1 &
+				exec:B_lack Monday:noclear:mdosbox /media/Games/Dos_Games/Black-Monday/game.bat >/dev/null 2>&1 &
+				exec:Z_epplelins Giants of The Sky's:noclear:/usr/bin/dosbox /media/Games/Dos_Games/zeppelin/zeppelin.exe >/dev/null 2>&1 &
+				exec:P_izza Tycoon:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Pizza_Tycoon/PIZZA.BAT >/dev/null 2>&1 &
+				exec:Th_e Settlers 2d:noclear:/usr/bin/dosbox /dosbox /media/Games/Dos_Games/s2g/S2.EXE  >/dev/null 2>&1 &
+				exec:S_imant The Electronic Ant Colony:noclear:/usr/bin/dosbox /media/Games/Dos_Games/simant-the-electronic-ant-colony/SIMANT.EXE >/dev/null 2>&1 &
+				exec:Si_m Citydos:noclear:/usr/bin/dosbox /media/Games/Dos_Games/simcity/SIMCITY.EXE >/dev/null 2>&1 &
+				exec:Sim C_ity 2000:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Simcity2/SC2000.EXE >/dev/null 2>&1 &
+				exec:Sim Earth:noclear:/usr/bin/dosbox /media/Games/Dos_Games/simearth-the-living-planet/simearth.exe >/dev/null 2>&1 &
+				exec:Sim Life:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Sim Life/sml.exe >/dev/null 2>&1 &
+				exec:Theme Park:noclear:/usr/bin/dosbox /media/Games/Dos_Games/ThemePark/THEME.BAT >/dev/null 2>&1 &
+				exec:Sim City 3000:noclear:/usr/bin/wine "/home/kevin/.wine/drive_c/Program Files/Maxis/SimCity 3000/Game/SC3.EXE" >/dev/null 2>&1 &
+
+				nop
+				exit:_Main menu...i
+#}}}
+#-----Text Adventure{{{
+############################# 
+		menu:text:Text Adventures
+				exec:Ad_venture::adventure >/dev/null 2>&1 &
+				exec:_Battlestar::/usr/games/battlestar;echo PRESS ENTER;read line' >/dev/null 2>&1 &
+				exec:_Phantasia::phantasia >/dev/null 2>&1 &
+				exec:Beyond Titanic:noclear:/usr/dosbox /media/Games/Dos_Games/TITANIC/BEYOND.COM >/dev/null 2>&1 &
+				exec:Castaway:noclear:noclear:dosbox /media/Ganes/Dos_Games/castaway/CASTAWAY.EXE  >/dev/null 2>&1 &
+				exec:City Of Madness:noclear:/usr/bin/dosbox /media/Games/Dos_Games/City-of-Madness/dred3.exe >/dev/null 2>&1 &
+				exec:Castle Elsinore:noclear:/usr/bin/dosbox /media/Dos_Games/Castle-Elsinore/ELSINORE.EXE >/dev/null 2>&1 &
+				exec:Corporat Scumbads:noclear:dosbox /media/Games/Dos_Games/CorporateScumbags/SCUM.BAT >/dev/null 2>&1 &
+				exec:Crime Adventure:noclear:/usr/bin/dosbox /media/Games/Dos_Games/CrimeAdventure/CRIME.EXE >/dev/null 2>&1 &
+				exec:Rim World:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Rimworld/RIMWORLD.COM >/dev/null 2>&1 &
+				exec:D&D Dungeons of The Necromancer:noclear:/usr/bin/dosbox /media/Games/Dos_Games/DND/DND.EXE >/dev/null 2>&1 &
+				exec:Deep Space Drifter:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Deep-Space-Drifter/DEEP.EXE >/dev/null 2>&1 &
+				exec:Demon's Maze:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Demon's_Maze/DEMON2.EXE >/dev/null 2>&1 &
+				exec:Dr. Ruth Computer Game Of Good Sex:noclear:/usr/bin/dosbox /media/Games/Dos_Games/dr-ruths/RUTH.EXE >/dev/null 2>&1 &
+				exec:Eric the Unready:noclear:dosbox /media/Games/Dos_Games/eric-the-unready/ERIC.COM  >/dev/null 2>&1 &
+				exec:HomeWorld:noclear:/usr/bin/dosbox /media/Games/Dos_Games/gateway-ii-homeworld/HOME.EXE >/dev/null 2>&1 &
+				exec:H_itch Hickers Guid To The Galaxy:noclear:/usr/bin/dosbox /media/Games/Dos_Games/hitchhikers-guide-to-the-galaxy/HITCHHIK.EXE >/dev/null 2>&1 &
+				exec:Hippy's Quest:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Hippy'sQuest/HIPPY.EXE >/dev/null 2>&1 &
+				exec:Journey into wildernes:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Journey/JOURNEY.COM >/dev/null 2>&1 &
+				exec:Leather Goddesses Of Phobos:noclear:dosbox media/Games/Dos_Games/leather-goddesses-of-phobos/leather.com >/dev/null 2>&1 &
+				exec:Mad Dog Williams And the Dungeons 0f Duridian:noclear:/usr/bin/dosbox /media/Games/Dos_Games/MADDOG/MADDOG.BAT >/dev/null 2>&1 &
+				exec:Planet fall:noclear:/usr/bin/dosbox /media/Games/Dos_Games/Planetfall/Planetfa.bat >/dev/null 2>&1 &
+				exec:Zork Trilogy:noclear:/usr/bin/dosbox /media/Games/Dos_Games/zork-trilogy/ZORK1.BAT >/dev/null 2>&1 &
+				exec:Sex Vixens From Space:noclear:/usr/bin/dosbox /media/Games/Dos_Games/sex-vixens-from-space/SEXVIXEN.EXE >/dev/null 2>&1 &
+
+				nop
+				exit:_Main menu...
+#}}}
+#---toys{{{
+		menu:Toys:Toys
+				exec:_bb:noclear:/usr/games/bb >/dev/null 2>&1 &
+				exec:_Pipes::~/scripts/Fun/pipes 
+				exec:_Oclock:noclear:oclock >/dev/null 2>&1 &
+				exec:oneko/_cat:noclear:oneko -fg black -bg white >/dev/null 2>&1 &
+				exec:o_neko/dog:noclear:oneko -dog -fg black -bg white >/dev/null 2>&1 &
+				exec:oneko/_stop:noclear:killall -TERM oneko >/dev/null 2>&1 &
+				exec:_Rain::rain
+				exec:tty-cloc_k::/usr/bin/tty-clock
+				exec:_Worms::worms
+				exec:_Xclock (analog):noclear:xclock -analog >/dev/null 2>&1 &
+									  exec:Xclock (_digital):noclear:xclock -digital -update 1 >/dev/null 2>&1 &
+															 exec:Xe_yes:noclear:xeyes >/dev/null 2>&1 &
+																			   exec:X Lo_go:noclear:xlogo >/dev/null 2>&1 &
+																						   exec:Ac_idWarp:noclear:/usr/bin/dosbox /media/Games/Demos/acidwarp/Acidwarp.exe >/dev/null 2>&1 &
+																									exec:Cow Say:display:fortune|cowsay
+																											 exec:Tux Say:display:urxvt -e fortune|cowsay -f tux
+																												   exec:Magic:noclear:/usr/bin/dosbox  /media/Games/DOS_Tools/MAGIC.EXE  >/dev/null 2>&1 &
+																													  nop
+																														 exit:_Main menu...
+# }}}
+# }}}
+#====Office tools Menu===={{{
+menu:tools:Office Tools
+	nop:-------------------
+	exec:Tandy Desk Mate:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/deskmate >/dev/null 2>&1 &
+	exec:Super Glossory:noclear:/usr/bin/dosbox  /media/Games/DOS_Tools/super/go.bat >/dev/null 2>&1 &
+	exec:C_alander(Calcurse)...::/usr/bin/calcurse 
+	exec:My Todo List:display:/usr/local/bin/task
+	exec:Address Book::/usr/local/bin/abook
+	exec:_Charcter Map:noclear...:/usr/bin/charmap >/dev/null 2>&1 &
+	nop:---Word-Processing--
+	exec:Abbie Word:noclear:/usr/bin/abiword >/dev/null 2>&1 &
+	exec:_WordGrinder...::/usr/bin/wordgrinder
+	exec:Wo_rd perfect 6.2 ...:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/COREL/wp.bat >/dev/null 2>&1 &
+	exec:M_icroSoft Word...:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/WORD.EXE >/dev/null 2>&1 &
+	exec:Word Star 7:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/WordStar 7 >/dev/null 2>&1 &
+	exec:Pc Proof Grammer Checker:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/PC-PROOF >/dev/null 2>&1 &
+	nop:---Spreed-Sheets---
+	exec:_Spreed Sheet Calculator...::/usr/bin/scim
+	exec:Calc_ulator....:noclear:/usr/bin/xcalc >/dev/null 2>&1 &:
+	exec:L_otus 123...:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/123/123.EXE >/dev/null 2>&1 &
+	exec:Q_uatro pro...:noclaer:dosbox /media/Games/DOS_Tools/COREL/QP56/Q.EXE >/dev/null 2>&1 &
+	nop
+
+exit:_Main menu...
+#}}}
+#========Emulators========{{{
+menu:emulators:Emulators
+	exec:A_pple II series (applewin):noclear:wine /media/Games/Emulatores/AppleWin/Applewin.exe 2>&1 &
+	exec:_Apple Macintosh 68k (_Basilisk-II) :noclear:/usr/bin/BasiliskII >/dev/null 2>&1 &
+	exec:Altai_r Z80(SIMH)::/usr/bin/altairz80
+	exec:Amstrad Cpc:noclear:usr/bin/wine /media/Games/Emulatores/WinAPE20B2/WinApe.exe 
+	exec:Atari VCS _2600 (stella):noclear:/usr/bin/stella >/dev/null 2>&1 &
+	exec:Atari _800 Computer(Mess):noclear:/usr/games/mess a800 >/dev/null 2>&1 &
+	exec:Atari _130xe (Mess):noclear:/usr/games/mess a130xe >/dev/null 2>&1 &
+	exec:A_tari ST(hatari):noclear:/usr/bin/hatari >/dev/null 2>&1 &
+	exec:Atari Jaguar(virtualjaguar):noclear:/usr/bin/virtualjaguar >/dev/null 2>&1 &
+	exec:BBC Micro(Mess):noclear:/wine /media/Games/Emulatores/BeebEm/BeebEm.exe
+	exec:Bally Astrocade(Mess):noclear:/mess astrocde
+	exec:_Commodore 128:noclear:/usr/bin/x128 >/dev/null 2>&1 &
+	exec:Commodore _64:noclear:/usr/bin/x64 >/dev/null 2>&1 &
+	exec:C_ommodore CBM-II:noclear:/usr/bin/xcbm2 >/dev/null 2>&1 &
+	exec:Commodore P_ET:noclear:/usr/bin/xpet >/dev/null 2>&1 &
+	exec:Commodore _Plus/_4:noclear:/usr/bin/xplus4 >/dev/null 2>&1 &
+	exec:Commodore _VIC-20:noclear:/usr/bin/xvic >/dev/null 2>&1 &
+	exec:Colecovision(Koleko):noclear:/usr/bin/wine /media/Games/
+	exec:DEC PDP1::/usr/bin/pdp1
+	exec:DEC PDP10::/usr/bin/pdp10
+	exec:DEC PDP11::/usr/bin/pdp11
+	exec:DEC PDP1_5::/usr/bin/pdp15
+	exec:DEC PDP4::/usr/bin/pdp4
+	exec:DEC PDP7::/usr/bin/pdp7
+	exec:DEC PDP8::/usr/bin/pdp8
+	exec:DEC PDP-8 0s/8  (_SIMH PDP)8::/usr/bin/os8
+	exec:DEC PDP9::/usr/bin/pdp9
+	exec:Nec Pc Engine:noclear:/usr/bin/wine /media/Games/Emulatores/me-0995/pce.exe-
+	exec:_Nintendo intertanment System(nestopi)a:noclear:/usr/games/nestopia >/dev/null 2>&1 &
+	exec:Nintendo Famicom_fceux:noclear:/usr/games/fceux >/dev/null 2>&1 &
+	exec:Mattel Aquarus:noclear:/usr/bin/mess aquarius 
+	exec:Sup_er Nintendo (ZSNES):noclear:/usr/bin/zsnes >/dev/null 2>&1 &
+	exec:Nintendo 64:noclear:/usr/bin/wine '/home/kevin/.wine/drive_c/Program Files/Project64 2.3/Project64.exe'
+	exec:Nintendo Wii:noclear:/usr/bin/wine '~/.wine/drive_c/Program Files/Dolphin x86/Dolphine.exe' >/dev/null 2>&1 &
+	exec:_MSX (openMSX):noclear:/usr/bin/openmsx-catapult >/dev/null 2>&1 &
+	exec:Pc 88:noclear:/usr/local/bin/quasi88 >/dev/null 2>&1 &
+	exec:Sincla_ir ZX Spectem(xpsect):noclear:/usr/bin/fbzx >/dev/null 2>&1 &
+	exec:Sony Playstation:noclear:/usr/games/pcsx >/dev/null 2>&1 &
+	exec:Sega Genasis(Gens):noclear:/usr/bin/wine /media/Games/Emulatores/wgens-211/gens.exe
+	exec:Sega Genasis(dgen):noclear:usr/games/dgen
+	exec:Sega Master System/Game Gear(mkaw)---wine /media/Games/Emulatores/mekaw-071/mekaw.exe
+	exec:Tandy TSR-80 (xtr)s:noclear:/usr/bin/xtrs >/dev/null 2>&1 &
+	nop:MultiSystem
+	exec:_higan:noclear:/usr/bin/higan >/dev/null 2>&1 &
+	exec:_MAME:noclear:/usr/games/mame >/dev/null 2>&1 &
+	exec:Me_SS:noclear:usr/games/mess
+ 	nop
+exit:_Main menu...
+#}}}
+#Programing{{{
+menu:programming:Programming
+    exec:Scratch:noclear:/usr/bin/scratch
+	exec:Boarland TurboC::/usr/bin/dosbox /media/Games/DOS_Tools/TurboC/RUNHACK.BAT >/dev/null 2>&1 &
+	exec:Gnu SmallTalk::gst
+	exec:IBM Logo:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/logo.com
+    nop:--------java----------
+	exec:BeanShell::/usr/bin/bsh
+	exec:Java enverment::/usr/bin/jthyon
+	nop:----Python-----   
+	exec:Spyder:noclear:/usr/bin/spyder >/dev/null 2>&1 &
+    exec:Python (v2.7)::/usr/bin/python2.7
+    exec:Python (_v3.4)::/usr/bin/python3.4
+	exec:Ninja-IDE:noclear:/usr/bin/ninja-ide >/dev/null 2>&1 &
+	exec:Python IDLE:noclear/usr/bin/idle >/dev/null 2>&1 &
+	exec:Py Crust:noclear:/usr/bin/pycrust >/dev/null 2>&1 &
+	nop:-----BASIC-----
+	exec:GW-Basic:noclear:dosbox /media/Games/DOS_Tools/GWBASIC.EXE >qb.exe >dev/null 2>&1 &
+	exec:Quick Basic 7.1:noclear:dosbox /media/Games/DOS_Tools/qb71/QB.EXE >/dev/null 2>&1 &
+    exec:Quick Basic 64bit:noclear:usr/bin/wine /media/Games/Wintools/qb64/qb64.exe >/dev/null 2>&1 &
+	exec:Basic-256:noclear:/usr/bin/wine /home/kevin/bin/BASIC256Portable/BASIC256Portable.exe/ >/dev/null 2>&1 &
+    exec:Brandy:noclear:/usr/bin/brandy >/dev/null 2>&1 &
+ 	nop
+exit:_Main menu...
+#}}}
+# System Tools Menu{{{
+ Menu:system-tools:System Tools
+	nop:-----------------
+	exec:System Uptime:display:uptime
+ 	exec:System Messages:display:echo "Recent system messages:";\
+	tail /var/log/messages
+	exec:_Free Memory:display:/usr/bin/free
+ 	exec:D_isk Info:display:./scripts/diskinfo
+	exec:List Usb Devices:display:usb-devices
+	exec:_Htop::/usr/bin/htop
+	exec:_glances::/usr/bin/glances
+	exec:Bmon::bmon
+	nop:---File Managment---
+	exec:_tdfsb:noclear:/usr/games/tdfsb >/dev/null 2>&1 &
+	exec:_eaglemode:noclear:/usr/bin/eaglemode >/dev/null 2>&1 &
+	exec:Midnight Commander::/usr/bin/mc
+	exec:Di_sk Manager:noclear:gnome-disks >/dev/null 2>&1 & 
+	exec:CD & DVD Burning Tools::/usr/bin/cdw
+	nop:---Text Editors---
+	exec:Mc_edit...::/usr/bin/mcedit
+	exec:V_im....::vim
+	exec:E_macs...::/usr/bin/emacs
+	exec:WPE...:noclear:/usr/local/bin/xwpe >/dev/null 2>$1 &
+
+
+
+
+nop
+exit:_Menu
+menu:web:Wed Devalapment
+	exec:Kompozer:nocler:/user/bin/win media/Games/Wintools/KompoZer >/dev/null 2>&1 &
+
+ 	nop
+# }}}
+#shutdown menu{{{
+ menu:shutdown:Shutdown the computer
+ 	exec:_Shutdown the computer::/usr/bin/sudo /sbin/shutdown -h now
+ 	exec:_Reboot the computer::/usr/bin/sudo /sbin/shutdown -r now
+ 	nop
+ 	exit:_Main menu...
+#}}}
+#Graphic{{{
+#
+menu:Graphics:graphics
+	exec:Gimp:noclear:/usr/bin/gimp
+	exec:QwickView:noclear:/usr/bin/dosbox /media/Games/Dos_Tools/qvpro260/qv.exe >/dev/null 2>&1 &
+	exec:NeoPaint:noclear:/usr/bin/dosbox  /media/Games/DOS_Tools/NEOPAINT/NEOPAINT.EXE >/dev/null 2>&1 &
+	exec:Deluxe Paint:noclear:/usr/bin/dosbox /media/Games/DOS_Tools/DP/DP.EXE
+
+exit:E_xit
+
+
+	#exec:_Change your password:p:passwd
+	#exec:_Who's online?:truncate:echo "These users are online:";w
